@@ -53,15 +53,9 @@ const AcademicYears = () => {
 
     const startYear = parseInt(match[1]);
     const endYear = parseInt(match[2]);
-    const currentYear = new Date().getFullYear();
 
     if (endYear <= startYear) {
         alert("L'année de fin doit être supérieure à l'année de début.");
-        return;
-    }
-
-    if (startYear < currentYear - 1) { // On autorise l'année en cours et l'année juste avant au cas où
-        alert(`Vous ne pouvez pas ajouter une année déjà passée (inférieure à ${currentYear}).`);
         return;
     }
 
@@ -165,7 +159,7 @@ const AcademicYears = () => {
                 <div>
                   <h3 style={{ fontSize: '20px', fontWeight: 'bold' }}>{y.nom}</h3>
                   <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-                    {y.is_current ? "Année de référence" : "Année archivée"}
+                    {y.is_current ? "Année de référence (active)" : "Année non active"}
                   </p>
                 </div>
               </div>

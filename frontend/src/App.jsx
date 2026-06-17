@@ -138,7 +138,7 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/universities" element={<ProtectedRoute adminOnly={true} teacherOk={false}><Universities /></ProtectedRoute>} />
           <Route path="/faculties" element={<ProtectedRoute adminOnly={true} teacherOk={false}><Faculties /></ProtectedRoute>} />
-          <Route path="/academic-years" element={<ProtectedRoute adminOnly={true} teacherOk={false}><AcademicYears /></ProtectedRoute>} />
+          <Route path="/academic-years" element={<ProtectedRoute teacherOk={false}><AcademicYears /></ProtectedRoute>} />
           <Route path="/departments" element={<ProtectedRoute teacherOk={false}><Departments /></ProtectedRoute>} />
           <Route path="/rooms" element={<ProtectedRoute teacherOk={false}><Rooms /></ProtectedRoute>} />
           <Route path="/teachers" element={<ProtectedRoute teacherOk={false}><Teachers /></ProtectedRoute>} />

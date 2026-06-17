@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { teachingService, teacherService, subjectService, classService, semesterService } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import { ClipboardList, Plus, Trash2, Edit2, User, BookOpen, GraduationCap, Clock, Save, LayoutGrid, LayoutList } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Modal from '../components/Modal';

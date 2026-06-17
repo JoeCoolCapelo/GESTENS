@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { profileService } from '../services/api';
-import { User, Mail, School, Camera, Save, ArrowLeft, Loader2 } from 'lucide-react';
+import { User, Mail, School, Camera, Save, ArrowLeft, Loader2, Key, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -22,6 +22,14 @@ const Profile = () => {
         photo_url: null
     });
     const [message, setMessage] = useState({ type: '', text: '' });
+
+    const [savingPassword, setSavingPassword] = useState(false);
+    const [passwordData, setPasswordData] = useState({
+        old_password: '',
+        new_password: '',
+        confirm_password: ''
+    });
+    const [passwordMessage, setPasswordMessage] = useState({ type: '', text: '' });
 
     useEffect(() => {
         fetchProfile();
@@ -88,6 +96,39 @@ const Profile = () => {
             setMessage({ type: 'error', text: 'Erreur lors de la mise à jour.' });
         } finally {
             setSaving(false);
+        }
+    };
+
+    const handlePasswordSubmit = async (e) => {
+        e.preventDefault();
+        setPasswordMessage({ type: '', text: '' });
+
+        if (passwordData.new_password !== passwordData.confirm_password) {
+            setPasswordMessage({ type: 'error', text: 'Les nouveaux mots de passe ne correspondent pas.' });
+            return;
+        }
+
+        if (passwordData.new_password.length < 6) {
+            setPasswordMessage({ type: 'error', text: 'Le mot de passe doit contenir au moins 6 caractères.' });
+            return;
+        }
+
+        setSavingPassword(true);
+        try {
+            const response = await profileService.changePassword({
+                old_password: passwordData.old_password,
+                new_password: passwordData.new_password
+            });
+            setPasswordMessage({ type: 'success', text: response.data.detail || 'Mot de passe modifié avec succès.' });
+            setPasswordData({ old_password: '', new_password: '', confirm_password: '' });
+        } catch (err) {
+            console.error("Erreur mise à jour mot de passe", err);
+            setPasswordMessage({ 
+                type: 'error', 
+                text: err.response?.data?.detail || 'Erreur lors de la modification du mot de passe.' 
+            });
+        } finally {
+            setSavingPassword(false);
         }
     };
 
@@ -231,6 +272,89 @@ const Profile = () => {
                         >
                             {saving ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
                             Sauvegarder les modifications
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div className="glass-morphism" style={{ padding: '40px', marginTop: '30px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <Key size={20} className="text-primary" /> Changer le mot de passe
+                </h3>
+                <form onSubmit={handlePasswordSubmit}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px', marginBottom: '30px', maxWidth: '400px' }}>
+                        <div className="form-group">
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--text-muted)' }}>
+                                <Lock size={16} /> Ancien mot de passe
+                            </label>
+                            <input 
+                                type="password"
+                                required
+                                value={passwordData.old_password}
+                                onChange={(e) => setPasswordData({...passwordData, old_password: e.target.value})}
+                                style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-muted)' }}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--text-muted)' }}>
+                                <Lock size={16} /> Nouveau mot de passe
+                            </label>
+                            <input 
+                                type="password"
+                                required
+                                value={passwordData.new_password}
+                                onChange={(e) => setPasswordData({...passwordData, new_password: e.target.value})}
+                                style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-muted)' }}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--text-muted)' }}>
+                                <Lock size={16} /> Confirmer le nouveau mot de passe
+                            </label>
+                            <input 
+                                type="password"
+                                required
+                                value={passwordData.confirm_password}
+                                onChange={(e) => setPasswordData({...passwordData, confirm_password: e.target.value})}
+                                style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-muted)' }}
+                            />
+                        </div>
+                    </div>
+
+                    {passwordMessage.text && (
+                        <div style={{ 
+                            padding: '12px', 
+                            borderRadius: '10px', 
+                            marginBottom: '24px',
+                            background: passwordMessage.type === 'success' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                            color: passwordMessage.type === 'success' ? '#10b981' : '#ef4444',
+                            textAlign: 'center',
+                            fontSize: '14px'
+                        }}>
+                            {passwordMessage.text}
+                        </div>
+                    )}
+
+                    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                        <button 
+                            type="submit" 
+                            disabled={savingPassword}
+                            style={{ 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                gap: '10px',
+                                padding: '12px 30px',
+                                background: 'var(--primary)',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '10px',
+                                fontWeight: '600',
+                                cursor: savingPassword ? 'not-allowed' : 'pointer',
+                                opacity: savingPassword ? 0.7 : 1
+                            }}
+                        >
+                            {savingPassword ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
+                            Changer le mot de passe
                         </button>
                     </div>
                 </form>

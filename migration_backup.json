@@ -1,0 +1,5743 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$qAZZ8wgorZfJlRAA8Jebre$lTo+CJ1Z5TFERF3lk8wy4BKMDq6BuJwmoTd9ItY3DLo=",
+    "last_login": "2026-06-17T01:28:36.200Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-18T16:15:19.989Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$8o3UP6QuWrZqaWP6urwPyF$IiSOb8e8/lx8AjC6SLhLj5sbefIrvg7ONoiS2LbWbMQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_des_sciences",
+    "first_name": "",
+    "last_name": "",
+    "email": "sciences@uganc.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:11.779Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$T2pk38aNPbDvfgGQqakCQ5$JMy6YVykoDr303puD8YRUA8SnI5Y5Op8TnmD+kuN3Cw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_des_lettres_",
+    "first_name": "",
+    "last_name": "",
+    "email": "lettres@uganc.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:13.637Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$HICgrsi1h4KMhvyiihtNKs$4/+gN0a3SCt7n/E5d3f3Ub6XADDdta3XdGKiV6Fos3c=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_de_mdecine",
+    "first_name": "",
+    "last_name": "",
+    "email": "medecine@uganc.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:15.368Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$I71ZrQDbgrjYfI7HNyUIrS$/dwyOy3p+QbS0xsL3SFdkMKpU/tfzLrbgDUhh2rES8g=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_dagronomie",
+    "first_name": "",
+    "last_name": "",
+    "email": "agro@ujnk.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:17.034Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$toRMpIhQniuNo7YpKPh9ql$5ZJDiCJFwX/8cOlf+in8+QCcdFNFPDAthA78HeOzvE0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_de_droit",
+    "first_name": "",
+    "last_name": "",
+    "email": "droit@ulabe.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:18.739Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$nywbH4ABeNopB1HSmU8T9u$rKH1apL0WfybeCarlhsd7wfR4h//avlBZnKtDY0KEdA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_de_gnie_civ",
+    "first_name": "",
+    "last_name": "",
+    "email": "gc@unzk.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:20.687Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$oNXjWiBMih6UykfhXazX9l$2lKERqhMbt6bPrNsWQht6MoWwkiDzKPUti4kgvxRe9k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_dinformatiqu",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@ukag.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:22.442Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$HFj66XO843mcdFmHvuQ5o1$fWdUYadJUfldbtE76iYfetKba/DgeImhlxZC1dZbSrI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_de_gestion_e",
+    "first_name": "",
+    "last_name": "",
+    "email": "gestion@ukag.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:24.184Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$swTT2x3IarOTShfcIqyGw3$0dijVbqkcuviOd+Vg1J7NAkEeviyl2vItLPdIlIUjmg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_facult_de_communica",
+    "first_name": "",
+    "last_name": "",
+    "email": "com@ukag.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T17:00:25.949Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$m8oMVZeI5qO1NcR1xqLvAC$L+sCMrdKnRkteFTSGfW+pFlpwO/pbU+gPlIiwELl7Dc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_uganc_fst",
+    "first_name": "",
+    "last_name": "",
+    "email": "fst@uganc.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T20:25:17.521Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$mCZARZaH6u0NwxUNSrSju5$1nPJ7tSkuX5b9QGfQUboc5pvCrVMCUbqeZkmn6ca/kg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_uganc_fmg",
+    "first_name": "",
+    "last_name": "",
+    "email": "fmg@uganc.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T20:25:20.206Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$NfkxhAIJvLdJB19bVYFVyC$+aNrR6NMYDFf/6UPHPbVK8CHDy3XSNL1r8qoSLTomFA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "resp_uganc_flsh",
+    "first_name": "",
+    "last_name": "",
+    "email": "flsh@uganc.edu.gn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-12T20:25:22.715Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$VuUjjIc2QJtVXdFQMWiUB2$dZ3tSMCEQqOj/Mhu3LCvI6ab6uwc7jQvXsJclPBgZT8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "joseph.bangoura",
+    "first_name": "",
+    "last_name": "",
+    "email": "josephbangoura0204@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-17T00:50:23.861Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5mxw4o49t4qa2m435j149fhlh1uhzzk2",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9O03FJal-75BnJfsagpCYWV8d8NCQvdnpk5bzPhvpVpb7pOs5ir8ebyuxHyU-sB5IH1vlhe6rbOZA_FnrTZcRF93U7376BgK0et6tizgKgj5AFS6CBm7GRgyrFjJT_kTOgFgvTZUdKAXlMPECM48_kCCs84Jw:1wQ4J8:oewtDXRpAWGoiVxjpvnG6tKknjW4v7BwM09kiAQ_mBg",
+    "expire_date": "2026-06-04T14:23:30.888Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k9258a395ue67zcjpre4f6vqdgp8mzvo",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP-yZ0MWAd326L1vIAssUjWQlPZk_Ltp0oNeZybzBs_bWvzWZfFzghE0nH5Z4PiUuov04HpvKra6LnNQe6IO29XUkrxuR_s3KNwLjDCwxgsZkwk1ORGHNmlxBs-Yc2CiIRrKBpMLGpNBunIWsjqLWGGO8PkCxmQ39w:1wZf52:ZdPl9ho6JU2gbECTE40UpfYq_Uz6jEMTn3h8nhM98NY",
+    "expire_date": "2026-07-01T01:28:36.246Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o1ttvcli18p4lcj2ahbtgxwr2dvhihzg",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9O03FJal-75BnJfsagpCYWV8d8NCQvdnpk5bzPhvpVpb7pOs5ir8ebyuxHyU-sB5IH1vlhe6rbOZA_FnrTZcRF93U7376BgK0et6tizgKgj5AFS6CBm7GRgyrFjJT_kTOgFgvTZUdKAXlMPECM48_kCCs84Jw:1wHOPM:AXWOez5BUVkOpyRcW-RZkYsDyosWFBx8gS8naBrXyAc",
+    "expire_date": "2026-05-11T16:02:04.201Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "oxz3jz9hyqrxrcni120pk29ua2fggnp9",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP-yZ0MWAd326L1vIAssUjWQlPZk_Ltp0oNeZybzBs_bWvzWZfFzghE0nH5Z4PiUuov04HpvKra6LnNQe6IO29XUkrxuR_s3KNwLjDCwxgsZkwk1ORGHNmlxBs-Yc2CiIRrKBpMLGpNBunIWsjqLWGGO8PkCxmQ39w:1wZf51:lgL-2AzMctZk790HrZkdLIUMuBBH_0bw98pax0OVHj8",
+    "expire_date": "2026-07-01T01:28:35.090Z"
+  }
+},
+{
+  "model": "management.universite",
+  "pk": 4,
+  "fields": {
+    "nom": "Université Julius Nyerere de Kankan",
+    "sigle": "UJNK",
+    "slogan": "L'excellence par le savoir",
+    "logo": "",
+    "republique": "RÉPUBLIQUE DE GUINÉE",
+    "email_contact": "contact@ujnk.edu.gn",
+    "bp": "BP: 209 Kankan"
+  }
+},
+{
+  "model": "management.universite",
+  "pk": 5,
+  "fields": {
+    "nom": "Université de Labé",
+    "sigle": "ULAB",
+    "slogan": "Savoir, Innover, Servir",
+    "logo": "",
+    "republique": "RÉPUBLIQUE DE GUINÉE",
+    "email_contact": "info@ulabe.edu.gn",
+    "bp": "BP: 102 Labé"
+  }
+},
+{
+  "model": "management.universite",
+  "pk": 6,
+  "fields": {
+    "nom": "Université de N'Zérékoré",
+    "sigle": "UNZK",
+    "slogan": "Former pour développer",
+    "logo": "",
+    "republique": "RÉPUBLIQUE DE GUINÉE",
+    "email_contact": "info@unzk.edu.gn",
+    "bp": "BP: 50 N'Zérékoré"
+  }
+},
+{
+  "model": "management.universite",
+  "pk": 7,
+  "fields": {
+    "nom": "Université Kofi Annan de Guinée",
+    "sigle": "UKAG",
+    "slogan": "L'avenir se construit ici",
+    "logo": "",
+    "republique": "RÉPUBLIQUE DE GUINÉE",
+    "email_contact": "info@ukag.edu.gn",
+    "bp": "BP: 300 Conakry"
+  }
+},
+{
+  "model": "management.universite",
+  "pk": 9,
+  "fields": {
+    "nom": "Université Gamal Abdel Nasser de Conakry",
+    "sigle": "UGANC",
+    "slogan": "Le temple du savoir",
+    "logo": "university/logos/logo-uganc_XVkOHj3.jpg",
+    "republique": "RÉPUBLIQUE DE GUINÉE",
+    "email_contact": "info@uganc.edu.gn",
+    "bp": "BP: 1147 Conakry"
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 10,
+  "fields": {
+    "nom": "Faculté des Sciences Sociales",
+    "logo": "",
+    "email": "sociales@ujnk.edu.gn",
+    "universite": 4
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 11,
+  "fields": {
+    "nom": "Faculté d'Agronomie",
+    "logo": "",
+    "email": "agro@ujnk.edu.gn",
+    "universite": 4
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 12,
+  "fields": {
+    "nom": "Faculté des Sciences de l'Éducation",
+    "logo": "",
+    "email": "education@ulabe.edu.gn",
+    "universite": 5
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 13,
+  "fields": {
+    "nom": "Faculté de Droit",
+    "logo": "",
+    "email": "droit@ulabe.edu.gn",
+    "universite": 5
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 14,
+  "fields": {
+    "nom": "Faculté des Sciences de l'Environnement",
+    "logo": "",
+    "email": "env@unzk.edu.gn",
+    "universite": 6
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 15,
+  "fields": {
+    "nom": "Faculté de Génie Civil",
+    "logo": "",
+    "email": "gc@unzk.edu.gn",
+    "universite": 6
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 16,
+  "fields": {
+    "nom": "Faculté d'Informatique et des TIC",
+    "logo": "",
+    "email": "info@ukag.edu.gn",
+    "universite": 7
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 17,
+  "fields": {
+    "nom": "Faculté de Gestion et Commerce",
+    "logo": "",
+    "email": "gestion@ukag.edu.gn",
+    "universite": 7
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 18,
+  "fields": {
+    "nom": "Faculté de Communication",
+    "logo": "",
+    "email": "com@ukag.edu.gn",
+    "universite": 7
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 19,
+  "fields": {
+    "nom": "Faculté des Sciences et Techniques (FST)",
+    "logo": "faculties/logos/958de97931b7b9fc566a8eaaacafc49b.jpg",
+    "email": "fst@uganc.edu.gn",
+    "universite": 9
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 20,
+  "fields": {
+    "nom": "Faculté de Médecine (FMG)",
+    "logo": "",
+    "email": "fmg@uganc.edu.gn",
+    "universite": 9
+  }
+},
+{
+  "model": "management.faculte",
+  "pk": 21,
+  "fields": {
+    "nom": "Faculté des Lettres (FLSH)",
+    "logo": "",
+    "email": "flsh@uganc.edu.gn",
+    "universite": 9
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "resp_facult_dagronomie"
+    ],
+    "faculte": 11,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "resp_facult_de_droit"
+    ],
+    "faculte": 13,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "resp_facult_de_gnie_civ"
+    ],
+    "faculte": 15,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "resp_facult_dinformatiqu"
+    ],
+    "faculte": 16,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "resp_facult_de_gestion_e"
+    ],
+    "faculte": 17,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "resp_facult_de_communica"
+    ],
+    "faculte": 18,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "faculte": 19,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "resp_uganc_fmg"
+    ],
+    "faculte": 20,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "resp_uganc_flsh"
+    ],
+    "faculte": 21,
+    "enseignant": null,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "joseph.bangoura"
+    ],
+    "faculte": 19,
+    "enseignant": 101,
+    "photo": ""
+  }
+},
+{
+  "model": "management.userprofile",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "faculte": 10,
+    "enseignant": null,
+    "photo": "profiles/videoframe_5815.png"
+  }
+},
+{
+  "model": "management.anneeacademique",
+  "pk": 5,
+  "fields": {
+    "nom": "2025-2026",
+    "description": null,
+    "is_current": true
+  }
+},
+{
+  "model": "management.anneeacademique",
+  "pk": 6,
+  "fields": {
+    "nom": "2026-2027",
+    "description": null,
+    "is_current": false
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 15,
+  "fields": {
+    "nom": "Salle D1",
+    "capacite": 80,
+    "faculte": 10
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 16,
+  "fields": {
+    "nom": "Salle D2",
+    "capacite": 200,
+    "faculte": 10
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 17,
+  "fields": {
+    "nom": "Salle D3",
+    "capacite": 200,
+    "faculte": 10
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 18,
+  "fields": {
+    "nom": "Salle E1",
+    "capacite": 150,
+    "faculte": 11
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 19,
+  "fields": {
+    "nom": "Salle E2",
+    "capacite": 100,
+    "faculte": 11
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 20,
+  "fields": {
+    "nom": "Salle E3",
+    "capacite": 100,
+    "faculte": 11
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 21,
+  "fields": {
+    "nom": "Salle F1",
+    "capacite": 100,
+    "faculte": 12
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 22,
+  "fields": {
+    "nom": "Salle F2",
+    "capacite": 100,
+    "faculte": 12
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 23,
+  "fields": {
+    "nom": "Salle F3",
+    "capacite": 30,
+    "faculte": 12
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 24,
+  "fields": {
+    "nom": "Salle G1",
+    "capacite": 80,
+    "faculte": 13
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 25,
+  "fields": {
+    "nom": "Salle G2",
+    "capacite": 30,
+    "faculte": 13
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 26,
+  "fields": {
+    "nom": "Salle G3",
+    "capacite": 200,
+    "faculte": 13
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 27,
+  "fields": {
+    "nom": "Salle H1",
+    "capacite": 100,
+    "faculte": 14
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 28,
+  "fields": {
+    "nom": "Salle H2",
+    "capacite": 100,
+    "faculte": 14
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 29,
+  "fields": {
+    "nom": "Salle I1",
+    "capacite": 50,
+    "faculte": 15
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 30,
+  "fields": {
+    "nom": "Salle I2",
+    "capacite": 30,
+    "faculte": 15
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 31,
+  "fields": {
+    "nom": "Salle J1",
+    "capacite": 80,
+    "faculte": 16
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 32,
+  "fields": {
+    "nom": "Salle J2",
+    "capacite": 150,
+    "faculte": 16
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 33,
+  "fields": {
+    "nom": "Salle J3",
+    "capacite": 80,
+    "faculte": 16
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 34,
+  "fields": {
+    "nom": "Salle K1",
+    "capacite": 30,
+    "faculte": 17
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 35,
+  "fields": {
+    "nom": "Salle K2",
+    "capacite": 80,
+    "faculte": 17
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 36,
+  "fields": {
+    "nom": "Salle L1",
+    "capacite": 200,
+    "faculte": 18
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 37,
+  "fields": {
+    "nom": "Salle L2",
+    "capacite": 100,
+    "faculte": 18
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 38,
+  "fields": {
+    "nom": "Amphi Fac",
+    "capacite": 200,
+    "faculte": 19
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 39,
+  "fields": {
+    "nom": "Salle 101 Fac",
+    "capacite": 50,
+    "faculte": 19
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 40,
+  "fields": {
+    "nom": "Amphi Fac",
+    "capacite": 200,
+    "faculte": 20
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 41,
+  "fields": {
+    "nom": "Salle 101 Fac",
+    "capacite": 50,
+    "faculte": 20
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 42,
+  "fields": {
+    "nom": "Amphi Fac",
+    "capacite": 200,
+    "faculte": 21
+  }
+},
+{
+  "model": "management.salle",
+  "pk": 43,
+  "fields": {
+    "nom": "Salle 101 Fac",
+    "capacite": 50,
+    "faculte": 21
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 13,
+  "fields": {
+    "nom": "Département de Sociologie",
+    "description": "Département rattaché à Faculté des Sciences Sociales",
+    "faculte": 10
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 14,
+  "fields": {
+    "nom": "Département de Psychologie",
+    "description": "Département rattaché à Faculté des Sciences Sociales",
+    "faculte": 10
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 15,
+  "fields": {
+    "nom": "Département de Productions Végétales",
+    "description": "Département rattaché à Faculté d'Agronomie",
+    "faculte": 11
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 16,
+  "fields": {
+    "nom": "Département de Zootechnie",
+    "description": "Département rattaché à Faculté d'Agronomie",
+    "faculte": 11
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 17,
+  "fields": {
+    "nom": "Département de Pédagogie",
+    "description": "Département rattaché à Faculté des Sciences de l'Éducation",
+    "faculte": 12
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 18,
+  "fields": {
+    "nom": "Département de Didactique",
+    "description": "Département rattaché à Faculté des Sciences de l'Éducation",
+    "faculte": 12
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 19,
+  "fields": {
+    "nom": "Département de Droit Public",
+    "description": "Département rattaché à Faculté de Droit",
+    "faculte": 13
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 20,
+  "fields": {
+    "nom": "Département de Droit Privé",
+    "description": "Département rattaché à Faculté de Droit",
+    "faculte": 13
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 21,
+  "fields": {
+    "nom": "Département d'Écologie",
+    "description": "Département rattaché à Faculté des Sciences de l'Environnement",
+    "faculte": 14
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 22,
+  "fields": {
+    "nom": "Département de Géographie",
+    "description": "Département rattaché à Faculté des Sciences de l'Environnement",
+    "faculte": 14
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 23,
+  "fields": {
+    "nom": "Département de Construction",
+    "description": "Département rattaché à Faculté de Génie Civil",
+    "faculte": 15
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 24,
+  "fields": {
+    "nom": "Département d'Hydraulique",
+    "description": "Département rattaché à Faculté de Génie Civil",
+    "faculte": 15
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 25,
+  "fields": {
+    "nom": "Département de Génie Logiciel",
+    "description": "Département rattaché à Faculté d'Informatique et des TIC",
+    "faculte": 16
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 26,
+  "fields": {
+    "nom": "Département de Réseaux et Télécoms",
+    "description": "Département rattaché à Faculté d'Informatique et des TIC",
+    "faculte": 16
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 27,
+  "fields": {
+    "nom": "Département de Comptabilité",
+    "description": "Département rattaché à Faculté de Gestion et Commerce",
+    "faculte": 17
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 28,
+  "fields": {
+    "nom": "Département de Marketing",
+    "description": "Département rattaché à Faculté de Gestion et Commerce",
+    "faculte": 17
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 29,
+  "fields": {
+    "nom": "Département de Journalisme",
+    "description": "Département rattaché à Faculté de Communication",
+    "faculte": 18
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 30,
+  "fields": {
+    "nom": "Département de Relations Publiques",
+    "description": "Département rattaché à Faculté de Communication",
+    "faculte": 18
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 31,
+  "fields": {
+    "nom": "Département de Mathématiques",
+    "description": null,
+    "faculte": 19
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 32,
+  "fields": {
+    "nom": "Département de Physique",
+    "description": null,
+    "faculte": 19
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 33,
+  "fields": {
+    "nom": "Département de Chimie",
+    "description": null,
+    "faculte": 19
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 34,
+  "fields": {
+    "nom": "Département de Pharmacie",
+    "description": null,
+    "faculte": 20
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 35,
+  "fields": {
+    "nom": "Département d'Odontologie",
+    "description": null,
+    "faculte": 20
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 36,
+  "fields": {
+    "nom": "Département de Sociologie",
+    "description": null,
+    "faculte": 21
+  }
+},
+{
+  "model": "management.departement",
+  "pk": 37,
+  "fields": {
+    "nom": "Département d'Histoire",
+    "description": null,
+    "faculte": 21
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 26,
+  "fields": {
+    "prenom": "Fodé",
+    "nom": "Savané",
+    "date_naissance": "1962-01-13",
+    "telephone": "+224 653 48 28 45",
+    "email": "fode.savane@edu.gn",
+    "specialite": "Démographie",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1021",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 13,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 27,
+  "fields": {
+    "prenom": "Abdoulaye",
+    "nom": "Diallo",
+    "date_naissance": "1980-11-17",
+    "telephone": "+224 648 97 29 20",
+    "email": "abdoulaye.diallo@edu.gn",
+    "specialite": "Sociologie Rurale",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1022",
+    "fonction": "Chef de Département",
+    "type": "Etranger",
+    "departement": 13,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 28,
+  "fields": {
+    "prenom": "Safiatou",
+    "nom": "Doumbouya",
+    "date_naissance": "1961-10-07",
+    "telephone": "+224 659 85 65 19",
+    "email": "safiatou.doumbouya@edu.gn",
+    "specialite": "Sociologie Urbaine",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1023",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 13,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 29,
+  "fields": {
+    "prenom": "Boubacar",
+    "nom": "Barry",
+    "date_naissance": "1989-12-08",
+    "telephone": "+224 638 16 63 77",
+    "email": "boubacar.barry@edu.gn",
+    "specialite": "Neuropsychologie",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1024",
+    "fonction": "Enseignant-Chercheur",
+    "type": "Etranger",
+    "departement": 14,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 30,
+  "fields": {
+    "prenom": "Ramatoulaye",
+    "nom": "Diakhaby",
+    "date_naissance": "1967-03-19",
+    "telephone": "+224 629 60 89 84",
+    "email": "ramatoulaye.diakhaby@edu.gn",
+    "specialite": "Psychologie du Développement",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1025",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 14,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 31,
+  "fields": {
+    "prenom": "Fodé",
+    "nom": "Kanté",
+    "date_naissance": "1980-02-27",
+    "telephone": "+224 649 81 87 58",
+    "email": "fode.kante@edu.gn",
+    "specialite": "Neuropsychologie",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1026",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 14,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 32,
+  "fields": {
+    "prenom": "Ramatoulaye",
+    "nom": "Camara",
+    "date_naissance": "1989-07-14",
+    "telephone": "+224 620 83 66 15",
+    "email": "ramatoulaye.camara@edu.gn",
+    "specialite": "Phytopathologie",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1027",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 15,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 33,
+  "fields": {
+    "prenom": "Maïmouna",
+    "nom": "Keita",
+    "date_naissance": "1982-11-03",
+    "telephone": "+224 656 76 27 14",
+    "email": "maimouna.keita@edu.gn",
+    "specialite": "Agrochimie",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1028",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 15,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 34,
+  "fields": {
+    "prenom": "Mamadou",
+    "nom": "Sow",
+    "date_naissance": "1978-09-01",
+    "telephone": "+224 620 13 71 84",
+    "email": "mamadou.sow@edu.gn",
+    "specialite": "Agrochimie",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1029",
+    "fonction": "Enseignant-Chercheur",
+    "type": "Etranger",
+    "departement": 15,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 35,
+  "fields": {
+    "prenom": "Lansana",
+    "nom": "Kanté",
+    "date_naissance": "1984-08-21",
+    "telephone": "+224 625 81 74 91",
+    "email": "lansana.kante@edu.gn",
+    "specialite": "Génétique Végétale",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1030",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 15,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 36,
+  "fields": {
+    "prenom": "Lansana",
+    "nom": "Diallo",
+    "date_naissance": "1973-03-20",
+    "telephone": "+224 668 99 21 99",
+    "email": "lansana.diallo@edu.gn",
+    "specialite": "Génétique Animale",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1031",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 16,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 37,
+  "fields": {
+    "prenom": "Mamadou",
+    "nom": "Barry",
+    "date_naissance": "1984-01-18",
+    "telephone": "+224 634 15 96 31",
+    "email": "mamadou.barry@edu.gn",
+    "specialite": "Nutrition Animale",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1032",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 16,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 38,
+  "fields": {
+    "prenom": "Alpha",
+    "nom": "Savané",
+    "date_naissance": "1988-06-18",
+    "telephone": "+224 649 10 84 46",
+    "email": "alpha.savane@edu.gn",
+    "specialite": "Génétique Animale",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1033",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 16,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 39,
+  "fields": {
+    "prenom": "Ramatoulaye",
+    "nom": "Doumbouya",
+    "date_naissance": "1962-08-07",
+    "telephone": "+224 645 74 53 67",
+    "email": "ramatoulaye.doumbouya@edu.gn",
+    "specialite": "Psychopédagogie",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1034",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 17,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 40,
+  "fields": {
+    "prenom": "Lansana",
+    "nom": "Souaré",
+    "date_naissance": "1975-04-23",
+    "telephone": "+224 659 31 97 21",
+    "email": "lansana.souare@edu.gn",
+    "specialite": "Évaluation",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1035",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 17,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 41,
+  "fields": {
+    "prenom": "Mohamed",
+    "nom": "Diakhaby",
+    "date_naissance": "1974-12-14",
+    "telephone": "+224 652 55 77 60",
+    "email": "mohamed.diakhaby@edu.gn",
+    "specialite": "Psychopédagogie",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1036",
+    "fonction": "Chef de Département",
+    "type": "National",
+    "departement": 17,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 42,
+  "fields": {
+    "prenom": "Lansana",
+    "nom": "Touré",
+    "date_naissance": "1963-11-18",
+    "telephone": "+224 625 42 53 29",
+    "email": "lansana.toure@edu.gn",
+    "specialite": "Didactique des Langues",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1037",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 18,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 43,
+  "fields": {
+    "prenom": "Ousmane",
+    "nom": "Souaré",
+    "date_naissance": "1986-08-05",
+    "telephone": "+224 630 30 34 22",
+    "email": "ousmane.souare@edu.gn",
+    "specialite": "Ingénierie Pédagogique",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1038",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 18,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 44,
+  "fields": {
+    "prenom": "Oumou",
+    "nom": "Bangoura",
+    "date_naissance": "1984-01-08",
+    "telephone": "+224 620 56 11 20",
+    "email": "oumou.bangoura@edu.gn",
+    "specialite": "Ingénierie Pédagogique",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1039",
+    "fonction": "Enseignant-Chercheur",
+    "type": "Etranger",
+    "departement": 18,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 45,
+  "fields": {
+    "prenom": "Maïmouna",
+    "nom": "Diakhaby",
+    "date_naissance": "1988-08-25",
+    "telephone": "+224 636 97 66 51",
+    "email": "maimouna.diakhaby@edu.gn",
+    "specialite": "Ingénierie Pédagogique",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1040",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 18,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 46,
+  "fields": {
+    "prenom": "Mariama",
+    "nom": "Kourouma",
+    "date_naissance": "1972-05-26",
+    "telephone": "+224 648 40 97 51",
+    "email": "mariama.kourouma@edu.gn",
+    "specialite": "Droit Constitutionnel",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1041",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 19,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 47,
+  "fields": {
+    "prenom": "Thierno",
+    "nom": "Condé",
+    "date_naissance": "1977-02-26",
+    "telephone": "+224 667 59 85 54",
+    "email": "thierno.conde@edu.gn",
+    "specialite": "Droit International",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1042",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 19,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 48,
+  "fields": {
+    "prenom": "Aminata",
+    "nom": "Souaré",
+    "date_naissance": "1968-09-15",
+    "telephone": "+224 654 82 96 40",
+    "email": "aminata.souare@edu.gn",
+    "specialite": "Droit Constitutionnel",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1043",
+    "fonction": "Enseignant-Chercheur",
+    "type": "Etranger",
+    "departement": 19,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 49,
+  "fields": {
+    "prenom": "Aissatou",
+    "nom": "Fofana",
+    "date_naissance": "1974-11-02",
+    "telephone": "+224 627 81 76 37",
+    "email": "aissatou.fofana@edu.gn",
+    "specialite": "Droit Pénal",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1044",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 20,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 50,
+  "fields": {
+    "prenom": "Nènè",
+    "nom": "Condé",
+    "date_naissance": "1969-02-01",
+    "telephone": "+224 669 89 68 55",
+    "email": "nene.conde@edu.gn",
+    "specialite": "Droit des Affaires",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1045",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 20,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 51,
+  "fields": {
+    "prenom": "Maïmouna",
+    "nom": "Diallo",
+    "date_naissance": "1963-10-18",
+    "telephone": "+224 636 62 55 70",
+    "email": "maimouna.diallo@edu.gn",
+    "specialite": "Droit Civil",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1046",
+    "fonction": "Chef de Département",
+    "type": "Etranger",
+    "departement": 20,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 52,
+  "fields": {
+    "prenom": "Maïmouna",
+    "nom": "Kaba",
+    "date_naissance": "1986-09-17",
+    "telephone": "+224 652 67 77 63",
+    "email": "maimouna.kaba@edu.gn",
+    "specialite": "Droit Pénal",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1047",
+    "fonction": "Enseignant-Chercheur",
+    "type": "Etranger",
+    "departement": 20,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 53,
+  "fields": {
+    "prenom": "Amadou",
+    "nom": "Traoré",
+    "date_naissance": "1990-09-13",
+    "telephone": "+224 651 97 76 11",
+    "email": "amadou.traore@edu.gn",
+    "specialite": "Biodiversité",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1048",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 21,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 54,
+  "fields": {
+    "prenom": "Mariama",
+    "nom": "Keita",
+    "date_naissance": "1970-10-23",
+    "telephone": "+224 639 13 53 28",
+    "email": "mariama.keita@edu.gn",
+    "specialite": "Conservation",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1049",
+    "fonction": "Enseignant",
+    "type": "Etranger",
+    "departement": 21,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 55,
+  "fields": {
+    "prenom": "Maïmouna",
+    "nom": "Sylla",
+    "date_naissance": "1983-07-18",
+    "telephone": "+224 642 90 84 77",
+    "email": "maimouna.sylla@edu.gn",
+    "specialite": "Biodiversité",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1050",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 21,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 56,
+  "fields": {
+    "prenom": "Sékou",
+    "nom": "Traoré",
+    "date_naissance": "1973-04-26",
+    "telephone": "+224 625 71 35 58",
+    "email": "sekou.traore@edu.gn",
+    "specialite": "Climatologie",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1051",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 22,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 57,
+  "fields": {
+    "prenom": "Cellou",
+    "nom": "Keita",
+    "date_naissance": "1986-12-10",
+    "telephone": "+224 649 54 62 34",
+    "email": "cellou.keita@edu.gn",
+    "specialite": "Géographie Humaine",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1052",
+    "fonction": "Chef de Département",
+    "type": "Etranger",
+    "departement": 22,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 58,
+  "fields": {
+    "prenom": "Souleymane",
+    "nom": "Diakhaby",
+    "date_naissance": "1963-04-03",
+    "telephone": "+224 650 73 98 85",
+    "email": "souleymane.diakhaby@edu.gn",
+    "specialite": "Géomatique",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1053",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 22,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 59,
+  "fields": {
+    "prenom": "Ibrahima",
+    "nom": "Soumah",
+    "date_naissance": "1973-11-09",
+    "telephone": "+224 661 64 30 17",
+    "email": "ibrahima.soumah@edu.gn",
+    "specialite": "Géomatique",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1054",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 22,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 60,
+  "fields": {
+    "prenom": "Fatoumata",
+    "nom": "Fofana",
+    "date_naissance": "1972-09-04",
+    "telephone": "+224 642 83 52 74",
+    "email": "fatoumata.fofana@edu.gn",
+    "specialite": "Topographie",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1055",
+    "fonction": "Enseignant",
+    "type": "Etranger",
+    "departement": 23,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 61,
+  "fields": {
+    "prenom": "Fanta",
+    "nom": "Bah",
+    "date_naissance": "1972-02-07",
+    "telephone": "+224 653 61 87 74",
+    "email": "fanta.bah@edu.gn",
+    "specialite": "Topographie",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1056",
+    "fonction": "Chef de Département",
+    "type": "National",
+    "departement": 23,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 62,
+  "fields": {
+    "prenom": "Mamadou",
+    "nom": "Keita",
+    "date_naissance": "1979-07-20",
+    "telephone": "+224 668 16 39 23",
+    "email": "mamadou.keita@edu.gn",
+    "specialite": "Béton Armé",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1057",
+    "fonction": "Enseignant",
+    "type": "Etranger",
+    "departement": 23,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 63,
+  "fields": {
+    "prenom": "Ramatoulaye",
+    "nom": "Kaba",
+    "date_naissance": "1970-11-04",
+    "telephone": "+224 623 13 59 44",
+    "email": "ramatoulaye.kaba@edu.gn",
+    "specialite": "Béton Armé",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1058",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 23,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 64,
+  "fields": {
+    "prenom": "Mohamed",
+    "nom": "Kourouma",
+    "date_naissance": "1969-04-21",
+    "telephone": "+224 640 76 87 60",
+    "email": "mohamed.kourouma@edu.gn",
+    "specialite": "Hydrologie",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1059",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 24,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 65,
+  "fields": {
+    "prenom": "Mohamed",
+    "nom": "Traoré",
+    "date_naissance": "1973-10-14",
+    "telephone": "+224 627 49 44 82",
+    "email": "mohamed.traore@edu.gn",
+    "specialite": "Hydrologie",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1060",
+    "fonction": "Chef de Département",
+    "type": "Etranger",
+    "departement": 24,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 66,
+  "fields": {
+    "prenom": "Fanta",
+    "nom": "Kourouma",
+    "date_naissance": "1979-08-06",
+    "telephone": "+224 667 77 61 59",
+    "email": "fanta.kourouma@edu.gn",
+    "specialite": "Mécanique des Fluides",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1061",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 24,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 67,
+  "fields": {
+    "prenom": "Nènè",
+    "nom": "Savané",
+    "date_naissance": "1969-08-09",
+    "telephone": "+224 669 35 77 27",
+    "email": "nene.savane@edu.gn",
+    "specialite": "Base de Données",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1062",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 25,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 68,
+  "fields": {
+    "prenom": "Hawa",
+    "nom": "Diallo",
+    "date_naissance": "1975-03-07",
+    "telephone": "+224 623 98 51 14",
+    "email": "hawa.diallo@edu.gn",
+    "specialite": "Base de Données",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1063",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 25,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 69,
+  "fields": {
+    "prenom": "Fatoumata",
+    "nom": "Condé",
+    "date_naissance": "1973-06-02",
+    "telephone": "+224 652 38 30 54",
+    "email": "fatoumata.conde@edu.gn",
+    "specialite": "Base de Données",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1064",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 25,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 70,
+  "fields": {
+    "prenom": "Fatoumata",
+    "nom": "Sylla",
+    "date_naissance": "1979-10-19",
+    "telephone": "+224 665 44 47 28",
+    "email": "fatoumata.sylla@edu.gn",
+    "specialite": "Programmation",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1065",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 25,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 71,
+  "fields": {
+    "prenom": "Binta",
+    "nom": "Diallo",
+    "date_naissance": "1982-01-01",
+    "telephone": "+224 650 14 84 44",
+    "email": "binta.diallo@edu.gn",
+    "specialite": "Télécommunications",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1066",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 26,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 72,
+  "fields": {
+    "prenom": "Diaraye",
+    "nom": "Souaré",
+    "date_naissance": "1985-07-01",
+    "telephone": "+224 629 52 82 76",
+    "email": "diaraye.souare@edu.gn",
+    "specialite": "Administration Réseau",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1067",
+    "fonction": "Chef de Département",
+    "type": "National",
+    "departement": 26,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 73,
+  "fields": {
+    "prenom": "Boubacar",
+    "nom": "Sow",
+    "date_naissance": "1985-03-06",
+    "telephone": "+224 659 42 81 53",
+    "email": "boubacar.sow@edu.gn",
+    "specialite": "Administration Réseau",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1068",
+    "fonction": "Vice-Doyen",
+    "type": "National",
+    "departement": 26,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 74,
+  "fields": {
+    "prenom": "Mamadou",
+    "nom": "Doumbouya",
+    "date_naissance": "1988-06-26",
+    "telephone": "+224 652 41 62 44",
+    "email": "mamadou.doumbouya@edu.gn",
+    "specialite": "Fiscalité",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1069",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 27,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 75,
+  "fields": {
+    "prenom": "Ibrahima",
+    "nom": "Bangoura",
+    "date_naissance": "1976-10-02",
+    "telephone": "+224 652 24 82 78",
+    "email": "ibrahima.bangoura@edu.gn",
+    "specialite": "Fiscalité",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1070",
+    "fonction": "Vice-Doyen",
+    "type": "Etranger",
+    "departement": 27,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 76,
+  "fields": {
+    "prenom": "Fatoumata",
+    "nom": "Diakhaby",
+    "date_naissance": "1967-05-01",
+    "telephone": "+224 665 59 25 98",
+    "email": "fatoumata.diakhaby@edu.gn",
+    "specialite": "Comptabilité Générale",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1071",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 27,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 77,
+  "fields": {
+    "prenom": "Ousmane",
+    "nom": "Keita",
+    "date_naissance": "1962-10-04",
+    "telephone": "+224 627 76 60 86",
+    "email": "ousmane.keita@edu.gn",
+    "specialite": "Marketing Digital",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1072",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 28,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 78,
+  "fields": {
+    "prenom": "Hawa",
+    "nom": "Fofana",
+    "date_naissance": "1963-10-20",
+    "telephone": "+224 631 90 43 95",
+    "email": "hawa.fofana@edu.gn",
+    "specialite": "Marketing Digital",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Maître de Conférences",
+    "matricule": "ENS-1073",
+    "fonction": "Chef de Département",
+    "type": "National",
+    "departement": 28,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 79,
+  "fields": {
+    "prenom": "Oumou",
+    "nom": "Kanté",
+    "date_naissance": "1963-11-28",
+    "telephone": "+224 655 40 27 52",
+    "email": "oumou.kante@edu.gn",
+    "specialite": "Marketing Digital",
+    "dernier_diplome": "Doctorat",
+    "grade_academique": "Chargé de Cours",
+    "matricule": "ENS-1074",
+    "fonction": "Chef de Département",
+    "type": "National",
+    "departement": 28,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 80,
+  "fields": {
+    "prenom": "Cellou",
+    "nom": "Kaba",
+    "date_naissance": "1976-12-24",
+    "telephone": "+224 655 45 27 26",
+    "email": "cellou.kaba@edu.gn",
+    "specialite": "Reportage",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1075",
+    "fonction": "Enseignant",
+    "type": "National",
+    "departement": 29,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 81,
+  "fields": {
+    "prenom": "Elhadj",
+    "nom": "Traoré",
+    "date_naissance": "1974-08-14",
+    "telephone": "+224 620 85 36 93",
+    "email": "elhadj.traore@edu.gn",
+    "specialite": "Reportage",
+    "dernier_diplome": "DEA",
+    "grade_academique": "Assistant",
+    "matricule": "ENS-1076",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 29,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 82,
+  "fields": {
+    "prenom": "Amadou",
+    "nom": "Condé",
+    "date_naissance": "1960-05-23",
+    "telephone": "+224 629 15 40 62",
+    "email": "amadou.conde@edu.gn",
+    "specialite": "Éthique des Médias",
+    "dernier_diplome": "Agrégation",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1077",
+    "fonction": "Chef de Département",
+    "type": "National",
+    "departement": 29,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 83,
+  "fields": {
+    "prenom": "Cellou",
+    "nom": "Diallo",
+    "date_naissance": "1970-01-22",
+    "telephone": "+224 643 71 83 49",
+    "email": "cellou.diallo@edu.gn",
+    "specialite": "Gestion de Crise",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1078",
+    "fonction": "Enseignant-Chercheur",
+    "type": "National",
+    "departement": 30,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 84,
+  "fields": {
+    "prenom": "Souleymane",
+    "nom": "Condé",
+    "date_naissance": "1966-08-18",
+    "telephone": "+224 663 29 52 48",
+    "email": "souleymane.conde@edu.gn",
+    "specialite": "Événementiel",
+    "dernier_diplome": "Master Recherche",
+    "grade_academique": "Docteur",
+    "matricule": "ENS-1079",
+    "fonction": "Enseignant",
+    "type": "Etranger",
+    "departement": 30,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 85,
+  "fields": {
+    "prenom": "Binta",
+    "nom": "Condé",
+    "date_naissance": "1990-02-26",
+    "telephone": "+224 646 49 79 31",
+    "email": "binta.conde@edu.gn",
+    "specialite": "Événementiel",
+    "dernier_diplome": "PhD",
+    "grade_academique": "Professeur Titulaire",
+    "matricule": "ENS-1080",
+    "fonction": "Chef de Département",
+    "type": "Etranger",
+    "departement": 30,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 86,
+  "fields": {
+    "prenom": "Mamadou 31",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000311",
+    "email": "mdiallo31@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "",
+    "fonction": null,
+    "type": "",
+    "departement": 31,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 87,
+  "fields": {
+    "prenom": "Mamadou 31",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000311",
+    "email": "mdiallo313526@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-31",
+    "fonction": null,
+    "type": "",
+    "departement": 31,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 88,
+  "fields": {
+    "prenom": "Aissatou 31",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000312",
+    "email": "abah312860@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-31",
+    "fonction": null,
+    "type": "",
+    "departement": 31,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 89,
+  "fields": {
+    "prenom": "Mamadou 32",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000321",
+    "email": "mdiallo327480@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-32",
+    "fonction": null,
+    "type": "",
+    "departement": 32,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 90,
+  "fields": {
+    "prenom": "Aissatou 32",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000322",
+    "email": "abah324707@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-32",
+    "fonction": null,
+    "type": "",
+    "departement": 32,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 91,
+  "fields": {
+    "prenom": "Mamadou 33",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000331",
+    "email": "mdiallo337421@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-33",
+    "fonction": null,
+    "type": "",
+    "departement": 33,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 92,
+  "fields": {
+    "prenom": "Aissatou 33",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000332",
+    "email": "abah331160@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-33",
+    "fonction": null,
+    "type": "",
+    "departement": 33,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 93,
+  "fields": {
+    "prenom": "Mamadou 34",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000341",
+    "email": "mdiallo342087@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-34",
+    "fonction": null,
+    "type": "",
+    "departement": 34,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 94,
+  "fields": {
+    "prenom": "Aissatou 34",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000342",
+    "email": "abah347905@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-34",
+    "fonction": null,
+    "type": "",
+    "departement": 34,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 95,
+  "fields": {
+    "prenom": "Mamadou 35",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000351",
+    "email": "mdiallo355961@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-35",
+    "fonction": null,
+    "type": "",
+    "departement": 35,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 96,
+  "fields": {
+    "prenom": "Aissatou 35",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000352",
+    "email": "abah358885@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-35",
+    "fonction": null,
+    "type": "",
+    "departement": 35,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 97,
+  "fields": {
+    "prenom": "Mamadou 36",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000361",
+    "email": "mdiallo366974@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-36",
+    "fonction": null,
+    "type": "",
+    "departement": 36,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 98,
+  "fields": {
+    "prenom": "Aissatou 36",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000362",
+    "email": "abah364579@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-36",
+    "fonction": null,
+    "type": "",
+    "departement": 36,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 99,
+  "fields": {
+    "prenom": "Mamadou 37",
+    "nom": "Diallo",
+    "date_naissance": null,
+    "telephone": "+22462000371",
+    "email": "mdiallo378294@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-MD-37",
+    "fonction": null,
+    "type": "",
+    "departement": 37,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 100,
+  "fields": {
+    "prenom": "Aissatou 37",
+    "nom": "Bah",
+    "date_naissance": null,
+    "telephone": "+22462000372",
+    "email": "abah376007@uganc.edu.gn",
+    "specialite": null,
+    "dernier_diplome": null,
+    "grade_academique": null,
+    "matricule": "UGANC-AB-37",
+    "fonction": null,
+    "type": "",
+    "departement": 37,
+    "photo": ""
+  }
+},
+{
+  "model": "management.enseignant",
+  "pk": 101,
+  "fields": {
+    "prenom": "JOSEPH",
+    "nom": "BANGOURA",
+    "date_naissance": "2004-10-30",
+    "telephone": "625997903",
+    "email": "josephbangoura0204@gmail.com",
+    "specialite": "INFOS DE BASE",
+    "dernier_diplome": "DOCTORAT",
+    "grade_academique": "Professeur",
+    "matricule": "2639",
+    "fonction": "ANALYSTE",
+    "type": "National",
+    "departement": 31,
+    "photo": ""
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 21,
+  "fields": {
+    "nom": "Sociologie M1",
+    "niveau": "M1",
+    "departement": 13
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 22,
+  "fields": {
+    "nom": "Sociologie M2",
+    "niveau": "M2",
+    "departement": 13
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 23,
+  "fields": {
+    "nom": "Psychologie L1",
+    "niveau": "L1",
+    "departement": 14
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 24,
+  "fields": {
+    "nom": "Psychologie M1",
+    "niveau": "M1",
+    "departement": 14
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 25,
+  "fields": {
+    "nom": "Productions Végétales L1",
+    "niveau": "L1",
+    "departement": 15
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 26,
+  "fields": {
+    "nom": "Productions Végétales M2",
+    "niveau": "M2",
+    "departement": 15
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 27,
+  "fields": {
+    "nom": "Zootechnie L2",
+    "niveau": "L2",
+    "departement": 16
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 28,
+  "fields": {
+    "nom": "Zootechnie L1",
+    "niveau": "L1",
+    "departement": 16
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 29,
+  "fields": {
+    "nom": "Pédagogie M2",
+    "niveau": "M2",
+    "departement": 17
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 30,
+  "fields": {
+    "nom": "Pédagogie L2",
+    "niveau": "L2",
+    "departement": 17
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 31,
+  "fields": {
+    "nom": "Didactique L3",
+    "niveau": "L3",
+    "departement": 18
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 32,
+  "fields": {
+    "nom": "Didactique L2",
+    "niveau": "L2",
+    "departement": 18
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 33,
+  "fields": {
+    "nom": "Droit Public L2",
+    "niveau": "L2",
+    "departement": 19
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 34,
+  "fields": {
+    "nom": "Droit Public M1",
+    "niveau": "M1",
+    "departement": 19
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 35,
+  "fields": {
+    "nom": "Droit Privé L2",
+    "niveau": "L2",
+    "departement": 20
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 36,
+  "fields": {
+    "nom": "Droit Privé M2",
+    "niveau": "M2",
+    "departement": 20
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 37,
+  "fields": {
+    "nom": "Écologie L3",
+    "niveau": "L3",
+    "departement": 21
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 38,
+  "fields": {
+    "nom": "Écologie L2",
+    "niveau": "L2",
+    "departement": 21
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 39,
+  "fields": {
+    "nom": "Géographie M2",
+    "niveau": "M2",
+    "departement": 22
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 40,
+  "fields": {
+    "nom": "Géographie L1",
+    "niveau": "L1",
+    "departement": 22
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 41,
+  "fields": {
+    "nom": "Construction L3",
+    "niveau": "L3",
+    "departement": 23
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 42,
+  "fields": {
+    "nom": "Construction M2",
+    "niveau": "M2",
+    "departement": 23
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 43,
+  "fields": {
+    "nom": "Hydraulique M1",
+    "niveau": "M1",
+    "departement": 24
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 44,
+  "fields": {
+    "nom": "Hydraulique M2",
+    "niveau": "M2",
+    "departement": 24
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 45,
+  "fields": {
+    "nom": "Génie Logiciel L1",
+    "niveau": "L1",
+    "departement": 25
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 46,
+  "fields": {
+    "nom": "Génie Logiciel M1",
+    "niveau": "M1",
+    "departement": 25
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 47,
+  "fields": {
+    "nom": "Réseaux et Télécoms L3",
+    "niveau": "L3",
+    "departement": 26
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 48,
+  "fields": {
+    "nom": "Réseaux et Télécoms L2",
+    "niveau": "L2",
+    "departement": 26
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 49,
+  "fields": {
+    "nom": "Comptabilité L3",
+    "niveau": "L3",
+    "departement": 27
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 50,
+  "fields": {
+    "nom": "Comptabilité M1",
+    "niveau": "M1",
+    "departement": 27
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 51,
+  "fields": {
+    "nom": "Marketing L1",
+    "niveau": "L1",
+    "departement": 28
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 52,
+  "fields": {
+    "nom": "Marketing L2",
+    "niveau": "L2",
+    "departement": 28
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 53,
+  "fields": {
+    "nom": "Journalisme L2",
+    "niveau": "L2",
+    "departement": 29
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 54,
+  "fields": {
+    "nom": "Journalisme M1",
+    "niveau": "M1",
+    "departement": 29
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 55,
+  "fields": {
+    "nom": "Relations Publiques L1",
+    "niveau": "L1",
+    "departement": 30
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 56,
+  "fields": {
+    "nom": "Relations Publiques L2",
+    "niveau": "L2",
+    "departement": 30
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 57,
+  "fields": {
+    "nom": "Licence 1 Mathématiques",
+    "niveau": "L1",
+    "departement": 31
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 58,
+  "fields": {
+    "nom": "Licence 2 Mathématiques",
+    "niveau": "L2",
+    "departement": 31
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 59,
+  "fields": {
+    "nom": "Licence 1 Physique",
+    "niveau": "L1",
+    "departement": 32
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 61,
+  "fields": {
+    "nom": "Licence 1 Chimie",
+    "niveau": "L1",
+    "departement": 33
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 62,
+  "fields": {
+    "nom": "Licence 2 Chimie",
+    "niveau": "L2",
+    "departement": 33
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 63,
+  "fields": {
+    "nom": "Licence 1 Pharmacie",
+    "niveau": "L1",
+    "departement": 34
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 64,
+  "fields": {
+    "nom": "Licence 2 Pharmacie",
+    "niveau": "L2",
+    "departement": 34
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 65,
+  "fields": {
+    "nom": "Licence 1 Département d'Odontologie",
+    "niveau": "L1",
+    "departement": 35
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 66,
+  "fields": {
+    "nom": "Licence 2 Département d'Odontologie",
+    "niveau": "L2",
+    "departement": 35
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 67,
+  "fields": {
+    "nom": "Licence 1 Sociologie",
+    "niveau": "L1",
+    "departement": 36
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 68,
+  "fields": {
+    "nom": "Licence 2 Sociologie",
+    "niveau": "L2",
+    "departement": 36
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 69,
+  "fields": {
+    "nom": "Licence 1 Département d'Histoire",
+    "niveau": "L1",
+    "departement": 37
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 70,
+  "fields": {
+    "nom": "Licence 2 Département d'Histoire",
+    "niveau": "L2",
+    "departement": 37
+  }
+},
+{
+  "model": "management.classe",
+  "pk": 71,
+  "fields": {
+    "nom": "licence 2 physique",
+    "niveau": "L2",
+    "departement": 32
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 26,
+  "fields": {
+    "nom": "Introduction à la Sociologie",
+    "code": "SOC101",
+    "departement": 13
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 27,
+  "fields": {
+    "nom": "Sociologie Africaine",
+    "code": "SOC201",
+    "departement": 13
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 28,
+  "fields": {
+    "nom": "Méthodes Qualitatives",
+    "code": "SOC301",
+    "departement": 13
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 29,
+  "fields": {
+    "nom": "Psychologie Générale",
+    "code": "PSY101",
+    "departement": 14
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 30,
+  "fields": {
+    "nom": "Psychologie du Développement",
+    "code": "PSY201",
+    "departement": 14
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 31,
+  "fields": {
+    "nom": "Psychopathologie",
+    "code": "PSY301",
+    "departement": 14
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 32,
+  "fields": {
+    "nom": "Agronomie Générale",
+    "code": "AGR101",
+    "departement": 15
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 33,
+  "fields": {
+    "nom": "Phytopathologie",
+    "code": "AGR201",
+    "departement": 15
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 34,
+  "fields": {
+    "nom": "Cultures Tropicales",
+    "code": "AGR301",
+    "departement": 15
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 35,
+  "fields": {
+    "nom": "Zootechnie Générale",
+    "code": "ZOO101",
+    "departement": 16
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 36,
+  "fields": {
+    "nom": "Nutrition Animale",
+    "code": "ZOO201",
+    "departement": 16
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 37,
+  "fields": {
+    "nom": "Reproduction Animale",
+    "code": "ZOO301",
+    "departement": 16
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 38,
+  "fields": {
+    "nom": "Sciences de l'Éducation",
+    "code": "PED101",
+    "departement": 17
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 39,
+  "fields": {
+    "nom": "Psychopédagogie",
+    "code": "PED201",
+    "departement": 17
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 40,
+  "fields": {
+    "nom": "Évaluation Scolaire",
+    "code": "PED301",
+    "departement": 17
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 41,
+  "fields": {
+    "nom": "Didactique Générale",
+    "code": "DID101",
+    "departement": 18
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 42,
+  "fields": {
+    "nom": "Didactique des Sciences",
+    "code": "DID201",
+    "departement": 18
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 43,
+  "fields": {
+    "nom": "Ingénierie de Formation",
+    "code": "DID301",
+    "departement": 18
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 44,
+  "fields": {
+    "nom": "Droit Constitutionnel",
+    "code": "DPU101",
+    "departement": 19
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 45,
+  "fields": {
+    "nom": "Droit Administratif",
+    "code": "DPU201",
+    "departement": 19
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 46,
+  "fields": {
+    "nom": "Droit International Public",
+    "code": "DPU301",
+    "departement": 19
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 47,
+  "fields": {
+    "nom": "Droit Civil",
+    "code": "DPR101",
+    "departement": 20
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 48,
+  "fields": {
+    "nom": "Droit des Obligations",
+    "code": "DPR201",
+    "departement": 20
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 49,
+  "fields": {
+    "nom": "Droit Commercial",
+    "code": "DPR301",
+    "departement": 20
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 50,
+  "fields": {
+    "nom": "Écologie Générale",
+    "code": "ECO101",
+    "departement": 21
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 51,
+  "fields": {
+    "nom": "Biodiversité",
+    "code": "ECO201",
+    "departement": 21
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 52,
+  "fields": {
+    "nom": "Gestion des Ressources Naturelles",
+    "code": "ECO301",
+    "departement": 21
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 53,
+  "fields": {
+    "nom": "Géographie Physique",
+    "code": "GEO101",
+    "departement": 22
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 54,
+  "fields": {
+    "nom": "Géomatique et SIG",
+    "code": "GEO201",
+    "departement": 22
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 55,
+  "fields": {
+    "nom": "Climatologie",
+    "code": "GEO301",
+    "departement": 22
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 56,
+  "fields": {
+    "nom": "Résistance des Matériaux",
+    "code": "CON101",
+    "departement": 23
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 57,
+  "fields": {
+    "nom": "Béton Armé",
+    "code": "CON201",
+    "departement": 23
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 58,
+  "fields": {
+    "nom": "Dessin Technique",
+    "code": "CON301",
+    "departement": 23
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 59,
+  "fields": {
+    "nom": "Mécanique des Fluides",
+    "code": "HYD101",
+    "departement": 24
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 60,
+  "fields": {
+    "nom": "Hydrologie",
+    "code": "HYD201",
+    "departement": 24
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 61,
+  "fields": {
+    "nom": "Assainissement Urbain",
+    "code": "HYD301",
+    "departement": 24
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 62,
+  "fields": {
+    "nom": "Algorithmique",
+    "code": "INF101",
+    "departement": 25
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 63,
+  "fields": {
+    "nom": "Programmation Web",
+    "code": "INF201",
+    "departement": 25
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 64,
+  "fields": {
+    "nom": "Base de Données",
+    "code": "INF301",
+    "departement": 25
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 65,
+  "fields": {
+    "nom": "Architecture des Réseaux",
+    "code": "RES101",
+    "departement": 26
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 66,
+  "fields": {
+    "nom": "Administration Système",
+    "code": "RES201",
+    "departement": 26
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 67,
+  "fields": {
+    "nom": "Cybersécurité",
+    "code": "RES301",
+    "departement": 26
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 68,
+  "fields": {
+    "nom": "Comptabilité Générale",
+    "code": "CPT101",
+    "departement": 27
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 69,
+  "fields": {
+    "nom": "Comptabilité Analytique",
+    "code": "CPT201",
+    "departement": 27
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 70,
+  "fields": {
+    "nom": "Audit Financier",
+    "code": "CPT301",
+    "departement": 27
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 71,
+  "fields": {
+    "nom": "Principes du Marketing",
+    "code": "MKT101",
+    "departement": 28
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 72,
+  "fields": {
+    "nom": "Marketing Digital",
+    "code": "MKT201",
+    "departement": 28
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 73,
+  "fields": {
+    "nom": "Études de Marché",
+    "code": "MKT301",
+    "departement": 28
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 74,
+  "fields": {
+    "nom": "Techniques de Rédaction",
+    "code": "JRN101",
+    "departement": 29
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 75,
+  "fields": {
+    "nom": "Reportage et Investigation",
+    "code": "JRN201",
+    "departement": 29
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 76,
+  "fields": {
+    "nom": "Éthique des Médias",
+    "code": "JRN301",
+    "departement": 29
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 77,
+  "fields": {
+    "nom": "Communication Institutionnelle",
+    "code": "RP101",
+    "departement": 30
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 78,
+  "fields": {
+    "nom": "Gestion de Crise",
+    "code": "RP201",
+    "departement": 30
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 79,
+  "fields": {
+    "nom": "Organisation d'Événements",
+    "code": "RP301",
+    "departement": 30
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 80,
+  "fields": {
+    "nom": "Introduction à Mathématiques",
+    "code": "INTRO31",
+    "departement": 31
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 81,
+  "fields": {
+    "nom": "Avancé Mathématiques",
+    "code": "ADV31",
+    "departement": 31
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 82,
+  "fields": {
+    "nom": "Introduction à Physique",
+    "code": "INTRO32",
+    "departement": 32
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 83,
+  "fields": {
+    "nom": "Avancé Physique",
+    "code": "ADV32",
+    "departement": 32
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 84,
+  "fields": {
+    "nom": "Introduction à Chimie",
+    "code": "INTRO33",
+    "departement": 33
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 85,
+  "fields": {
+    "nom": "Avancé Chimie",
+    "code": "ADV33",
+    "departement": 33
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 86,
+  "fields": {
+    "nom": "Introduction à Pharmacie",
+    "code": "INTRO34",
+    "departement": 34
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 87,
+  "fields": {
+    "nom": "Avancé Pharmacie",
+    "code": "ADV34",
+    "departement": 34
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 88,
+  "fields": {
+    "nom": "Introduction à Département d'Odontologie",
+    "code": "INTRO35",
+    "departement": 35
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 89,
+  "fields": {
+    "nom": "Avancé Département d'Odontologie",
+    "code": "ADV35",
+    "departement": 35
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 90,
+  "fields": {
+    "nom": "Introduction à Sociologie",
+    "code": "INTRO36",
+    "departement": 36
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 91,
+  "fields": {
+    "nom": "Avancé Sociologie",
+    "code": "ADV36",
+    "departement": 36
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 92,
+  "fields": {
+    "nom": "Introduction à Département d'Histoire",
+    "code": "INTRO37",
+    "departement": 37
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 93,
+  "fields": {
+    "nom": "Avancé Département d'Histoire",
+    "code": "ADV37",
+    "departement": 37
+  }
+},
+{
+  "model": "management.matiere",
+  "pk": 94,
+  "fields": {
+    "nom": "infos de base",
+    "code": "IN001",
+    "departement": 31
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 4,
+  "fields": {
+    "nom": "S1",
+    "type": "Impair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 5,
+  "fields": {
+    "nom": "S2",
+    "type": "Pair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 6,
+  "fields": {
+    "nom": "S3",
+    "type": "Impair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 7,
+  "fields": {
+    "nom": "S4",
+    "type": "Pair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 8,
+  "fields": {
+    "nom": "S5",
+    "type": "Impair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 9,
+  "fields": {
+    "nom": "S6",
+    "type": "Pair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 10,
+  "fields": {
+    "nom": "S7",
+    "type": "Impair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 11,
+  "fields": {
+    "nom": "S8",
+    "type": "Pair"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 12,
+  "fields": {
+    "nom": "Semestre 1",
+    "type": "IMPAIR"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 13,
+  "fields": {
+    "nom": "Semestre 2",
+    "type": "PAIR"
+  }
+},
+{
+  "model": "management.semestre",
+  "pk": 14,
+  "fields": {
+    "nom": "Semestre 3",
+    "type": "IMPAIR"
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 27,
+  "fields": {
+    "enseignant": 26,
+    "matiere": 26,
+    "classe": 22,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 28,
+  "fields": {
+    "enseignant": 26,
+    "matiere": 27,
+    "classe": 22,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 29,
+  "fields": {
+    "enseignant": 28,
+    "matiere": 28,
+    "classe": 22,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 30,
+  "fields": {
+    "enseignant": 30,
+    "matiere": 29,
+    "classe": 24,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 31,
+  "fields": {
+    "enseignant": 29,
+    "matiere": 30,
+    "classe": 23,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 32,
+  "fields": {
+    "enseignant": 30,
+    "matiere": 31,
+    "classe": 24,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 33,
+  "fields": {
+    "enseignant": 32,
+    "matiere": 32,
+    "classe": 26,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 34,
+  "fields": {
+    "enseignant": 34,
+    "matiere": 33,
+    "classe": 25,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 35,
+  "fields": {
+    "enseignant": 32,
+    "matiere": 34,
+    "classe": 26,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 36,
+  "fields": {
+    "enseignant": 36,
+    "matiere": 35,
+    "classe": 27,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 37,
+  "fields": {
+    "enseignant": 37,
+    "matiere": 36,
+    "classe": 28,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 38,
+  "fields": {
+    "enseignant": 38,
+    "matiere": 37,
+    "classe": 28,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 39,
+  "fields": {
+    "enseignant": 40,
+    "matiere": 38,
+    "classe": 29,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 40,
+  "fields": {
+    "enseignant": 41,
+    "matiere": 39,
+    "classe": 29,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 41,
+  "fields": {
+    "enseignant": 39,
+    "matiere": 40,
+    "classe": 29,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 42,
+  "fields": {
+    "enseignant": 42,
+    "matiere": 41,
+    "classe": 32,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 43,
+  "fields": {
+    "enseignant": 44,
+    "matiere": 42,
+    "classe": 32,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 44,
+  "fields": {
+    "enseignant": 45,
+    "matiere": 43,
+    "classe": 31,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 45,
+  "fields": {
+    "enseignant": 46,
+    "matiere": 44,
+    "classe": 34,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 46,
+  "fields": {
+    "enseignant": 48,
+    "matiere": 45,
+    "classe": 33,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 47,
+  "fields": {
+    "enseignant": 48,
+    "matiere": 46,
+    "classe": 33,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 48,
+  "fields": {
+    "enseignant": 49,
+    "matiere": 47,
+    "classe": 36,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 49,
+  "fields": {
+    "enseignant": 50,
+    "matiere": 48,
+    "classe": 35,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 50,
+  "fields": {
+    "enseignant": 50,
+    "matiere": 49,
+    "classe": 36,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 51,
+  "fields": {
+    "enseignant": 53,
+    "matiere": 50,
+    "classe": 38,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 52,
+  "fields": {
+    "enseignant": 55,
+    "matiere": 51,
+    "classe": 38,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 53,
+  "fields": {
+    "enseignant": 55,
+    "matiere": 52,
+    "classe": 37,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 54,
+  "fields": {
+    "enseignant": 56,
+    "matiere": 53,
+    "classe": 39,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 55,
+  "fields": {
+    "enseignant": 57,
+    "matiere": 54,
+    "classe": 39,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 56,
+  "fields": {
+    "enseignant": 58,
+    "matiere": 55,
+    "classe": 40,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 57,
+  "fields": {
+    "enseignant": 62,
+    "matiere": 56,
+    "classe": 41,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 58,
+  "fields": {
+    "enseignant": 61,
+    "matiere": 57,
+    "classe": 42,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 59,
+  "fields": {
+    "enseignant": 61,
+    "matiere": 58,
+    "classe": 41,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 60,
+  "fields": {
+    "enseignant": 65,
+    "matiere": 59,
+    "classe": 44,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 61,
+  "fields": {
+    "enseignant": 65,
+    "matiere": 60,
+    "classe": 44,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 62,
+  "fields": {
+    "enseignant": 64,
+    "matiere": 61,
+    "classe": 44,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 63,
+  "fields": {
+    "enseignant": 69,
+    "matiere": 62,
+    "classe": 45,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 64,
+  "fields": {
+    "enseignant": 69,
+    "matiere": 63,
+    "classe": 45,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 65,
+  "fields": {
+    "enseignant": 67,
+    "matiere": 64,
+    "classe": 45,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 66,
+  "fields": {
+    "enseignant": 73,
+    "matiere": 65,
+    "classe": 48,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 67,
+  "fields": {
+    "enseignant": 72,
+    "matiere": 66,
+    "classe": 47,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 68,
+  "fields": {
+    "enseignant": 73,
+    "matiere": 67,
+    "classe": 47,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 69,
+  "fields": {
+    "enseignant": 76,
+    "matiere": 68,
+    "classe": 49,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 70,
+  "fields": {
+    "enseignant": 75,
+    "matiere": 69,
+    "classe": 50,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 71,
+  "fields": {
+    "enseignant": 74,
+    "matiere": 70,
+    "classe": 49,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 72,
+  "fields": {
+    "enseignant": 77,
+    "matiere": 71,
+    "classe": 51,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 73,
+  "fields": {
+    "enseignant": 78,
+    "matiere": 72,
+    "classe": 51,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 74,
+  "fields": {
+    "enseignant": 77,
+    "matiere": 73,
+    "classe": 51,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 75,
+  "fields": {
+    "enseignant": 81,
+    "matiere": 74,
+    "classe": 54,
+    "semestre": 5,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 76,
+  "fields": {
+    "enseignant": 81,
+    "matiere": 75,
+    "classe": 53,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 77,
+  "fields": {
+    "enseignant": 82,
+    "matiere": 76,
+    "classe": 53,
+    "semestre": 6,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 78,
+  "fields": {
+    "enseignant": 83,
+    "matiere": 77,
+    "classe": 55,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 79,
+  "fields": {
+    "enseignant": 84,
+    "matiere": 78,
+    "classe": 56,
+    "semestre": 7,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 80,
+  "fields": {
+    "enseignant": 84,
+    "matiere": 79,
+    "classe": 55,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.enseignement",
+  "pk": 81,
+  "fields": {
+    "enseignant": 101,
+    "matiere": 94,
+    "classe": 57,
+    "semestre": 4,
+    "annee_academique": 5
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 46,
+  "fields": {
+    "enseignement": 27,
+    "jour": "Mercredi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 17
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 47,
+  "fields": {
+    "enseignement": 28,
+    "jour": "Mercredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 16
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 48,
+  "fields": {
+    "enseignement": 29,
+    "jour": "Mardi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 15
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 49,
+  "fields": {
+    "enseignement": 29,
+    "jour": "Vendredi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 17
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 50,
+  "fields": {
+    "enseignement": 30,
+    "jour": "Samedi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 15
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 51,
+  "fields": {
+    "enseignement": 31,
+    "jour": "Vendredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 17
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 52,
+  "fields": {
+    "enseignement": 32,
+    "jour": "Mercredi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 15
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 53,
+  "fields": {
+    "enseignement": 33,
+    "jour": "Jeudi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 18
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 54,
+  "fields": {
+    "enseignement": 33,
+    "jour": "Lundi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 18
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 55,
+  "fields": {
+    "enseignement": 34,
+    "jour": "Jeudi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 19
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 56,
+  "fields": {
+    "enseignement": 35,
+    "jour": "Lundi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 20
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 57,
+  "fields": {
+    "enseignement": 35,
+    "jour": "Lundi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 18
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 58,
+  "fields": {
+    "enseignement": 36,
+    "jour": "Mardi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 18
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 59,
+  "fields": {
+    "enseignement": 36,
+    "jour": "Samedi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 20
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 60,
+  "fields": {
+    "enseignement": 37,
+    "jour": "Lundi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 20
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 61,
+  "fields": {
+    "enseignement": 37,
+    "jour": "Vendredi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 20
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 62,
+  "fields": {
+    "enseignement": 38,
+    "jour": "Mardi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 19
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 63,
+  "fields": {
+    "enseignement": 38,
+    "jour": "Jeudi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 19
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 64,
+  "fields": {
+    "enseignement": 39,
+    "jour": "Jeudi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 23
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 65,
+  "fields": {
+    "enseignement": 39,
+    "jour": "Mardi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 21
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 66,
+  "fields": {
+    "enseignement": 40,
+    "jour": "Lundi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 23
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 67,
+  "fields": {
+    "enseignement": 41,
+    "jour": "Samedi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 21
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 68,
+  "fields": {
+    "enseignement": 42,
+    "jour": "Vendredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 23
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 69,
+  "fields": {
+    "enseignement": 42,
+    "jour": "Mardi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 21
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 70,
+  "fields": {
+    "enseignement": 43,
+    "jour": "Mercredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 22
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 71,
+  "fields": {
+    "enseignement": 44,
+    "jour": "Jeudi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 23
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 72,
+  "fields": {
+    "enseignement": 44,
+    "jour": "Jeudi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 22
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 73,
+  "fields": {
+    "enseignement": 45,
+    "jour": "Jeudi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 24
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 74,
+  "fields": {
+    "enseignement": 45,
+    "jour": "Lundi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 25
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 75,
+  "fields": {
+    "enseignement": 46,
+    "jour": "Mardi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 26
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 76,
+  "fields": {
+    "enseignement": 47,
+    "jour": "Mardi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 24
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 77,
+  "fields": {
+    "enseignement": 47,
+    "jour": "Lundi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 24
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 78,
+  "fields": {
+    "enseignement": 48,
+    "jour": "Vendredi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 25
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 79,
+  "fields": {
+    "enseignement": 48,
+    "jour": "Samedi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 25
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 80,
+  "fields": {
+    "enseignement": 49,
+    "jour": "Samedi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 24
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 81,
+  "fields": {
+    "enseignement": 50,
+    "jour": "Vendredi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 25
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 82,
+  "fields": {
+    "enseignement": 51,
+    "jour": "Mercredi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 28
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 83,
+  "fields": {
+    "enseignement": 52,
+    "jour": "Jeudi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 28
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 84,
+  "fields": {
+    "enseignement": 52,
+    "jour": "Samedi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 28
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 85,
+  "fields": {
+    "enseignement": 53,
+    "jour": "Samedi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 27
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 86,
+  "fields": {
+    "enseignement": 53,
+    "jour": "Lundi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 28
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 87,
+  "fields": {
+    "enseignement": 54,
+    "jour": "Vendredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 27
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 88,
+  "fields": {
+    "enseignement": 54,
+    "jour": "Lundi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 27
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 89,
+  "fields": {
+    "enseignement": 55,
+    "jour": "Mercredi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 27
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 90,
+  "fields": {
+    "enseignement": 56,
+    "jour": "Samedi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 28
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 91,
+  "fields": {
+    "enseignement": 56,
+    "jour": "Mercredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 28
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 92,
+  "fields": {
+    "enseignement": 57,
+    "jour": "Jeudi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 93,
+  "fields": {
+    "enseignement": 58,
+    "jour": "Mercredi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 94,
+  "fields": {
+    "enseignement": 58,
+    "jour": "Lundi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 95,
+  "fields": {
+    "enseignement": 59,
+    "jour": "Vendredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 96,
+  "fields": {
+    "enseignement": 60,
+    "jour": "Mardi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 97,
+  "fields": {
+    "enseignement": 60,
+    "jour": "Mardi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 98,
+  "fields": {
+    "enseignement": 61,
+    "jour": "Vendredi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 99,
+  "fields": {
+    "enseignement": 62,
+    "jour": "Vendredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 29
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 100,
+  "fields": {
+    "enseignement": 62,
+    "jour": "Lundi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 30
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 101,
+  "fields": {
+    "enseignement": 63,
+    "jour": "Jeudi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 33
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 102,
+  "fields": {
+    "enseignement": 64,
+    "jour": "Jeudi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 31
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 103,
+  "fields": {
+    "enseignement": 64,
+    "jour": "Jeudi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 32
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 104,
+  "fields": {
+    "enseignement": 65,
+    "jour": "Jeudi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 32
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 105,
+  "fields": {
+    "enseignement": 66,
+    "jour": "Mardi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 31
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 106,
+  "fields": {
+    "enseignement": 66,
+    "jour": "Mardi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 31
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 107,
+  "fields": {
+    "enseignement": 67,
+    "jour": "Samedi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 32
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 108,
+  "fields": {
+    "enseignement": 68,
+    "jour": "Jeudi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 33
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 109,
+  "fields": {
+    "enseignement": 69,
+    "jour": "Mercredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 35
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 110,
+  "fields": {
+    "enseignement": 69,
+    "jour": "Mardi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 34
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 111,
+  "fields": {
+    "enseignement": 70,
+    "jour": "Mercredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 35
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 112,
+  "fields": {
+    "enseignement": 71,
+    "jour": "Lundi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 34
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 113,
+  "fields": {
+    "enseignement": 71,
+    "jour": "Samedi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 34
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 114,
+  "fields": {
+    "enseignement": 72,
+    "jour": "Jeudi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 35
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 115,
+  "fields": {
+    "enseignement": 73,
+    "jour": "Vendredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 35
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 116,
+  "fields": {
+    "enseignement": 73,
+    "jour": "Lundi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 35
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 117,
+  "fields": {
+    "enseignement": 74,
+    "jour": "Mercredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 34
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 118,
+  "fields": {
+    "enseignement": 75,
+    "jour": "Mercredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 37
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 119,
+  "fields": {
+    "enseignement": 76,
+    "jour": "Vendredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 36
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 120,
+  "fields": {
+    "enseignement": 77,
+    "jour": "Vendredi",
+    "heure_debut": "15:15:00",
+    "heure_fin": "17:15:00",
+    "salle": 37
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 121,
+  "fields": {
+    "enseignement": 78,
+    "jour": "Lundi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 37
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 122,
+  "fields": {
+    "enseignement": 78,
+    "jour": "Mercredi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 36
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 123,
+  "fields": {
+    "enseignement": 79,
+    "jour": "Jeudi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 37
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 124,
+  "fields": {
+    "enseignement": 79,
+    "jour": "Samedi",
+    "heure_debut": "10:15:00",
+    "heure_fin": "12:15:00",
+    "salle": 36
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 125,
+  "fields": {
+    "enseignement": 80,
+    "jour": "Samedi",
+    "heure_debut": "13:00:00",
+    "heure_fin": "15:00:00",
+    "salle": 36
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 126,
+  "fields": {
+    "enseignement": 80,
+    "jour": "Samedi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 36
+  }
+},
+{
+  "model": "management.emploidutemps",
+  "pk": 127,
+  "fields": {
+    "enseignement": 81,
+    "jour": "Lundi",
+    "heure_debut": "08:00:00",
+    "heure_fin": "10:00:00",
+    "salle": 38
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 63,
+  "fields": {
+    "emploi_du_temps": 46,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:10.928Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 64,
+  "fields": {
+    "emploi_du_temps": 46,
+    "date": "2026-06-05",
+    "statut": "REPORTE",
+    "heures_effectuees": "0.00",
+    "motif": "Report cause examen",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:10.974Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 65,
+  "fields": {
+    "emploi_du_temps": 47,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.021Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 66,
+  "fields": {
+    "emploi_du_temps": 47,
+    "date": "2026-06-05",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.065Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 67,
+  "fields": {
+    "emploi_du_temps": 48,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.109Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 68,
+  "fields": {
+    "emploi_du_temps": 48,
+    "date": "2026-06-05",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.158Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 69,
+  "fields": {
+    "emploi_du_temps": 49,
+    "date": "2026-06-12",
+    "statut": "REPORTE",
+    "heures_effectuees": "0.00",
+    "motif": "Report cause examen",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.204Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 70,
+  "fields": {
+    "emploi_du_temps": 49,
+    "date": "2026-06-05",
+    "statut": "ABSENT",
+    "heures_effectuees": "0.00",
+    "motif": "Maladie",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.254Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 71,
+  "fields": {
+    "emploi_du_temps": 50,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.301Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 72,
+  "fields": {
+    "emploi_du_temps": 50,
+    "date": "2026-06-05",
+    "statut": "REPORTE",
+    "heures_effectuees": "0.00",
+    "motif": "Report cause examen",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.346Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 73,
+  "fields": {
+    "emploi_du_temps": 51,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.395Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 74,
+  "fields": {
+    "emploi_du_temps": 51,
+    "date": "2026-06-05",
+    "statut": "ABSENT",
+    "heures_effectuees": "0.00",
+    "motif": "Maladie",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.448Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 75,
+  "fields": {
+    "emploi_du_temps": 52,
+    "date": "2026-06-12",
+    "statut": "ABSENT",
+    "heures_effectuees": "0.00",
+    "motif": "Maladie",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.496Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 76,
+  "fields": {
+    "emploi_du_temps": 52,
+    "date": "2026-06-05",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.543Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 77,
+  "fields": {
+    "emploi_du_temps": 53,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.590Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 78,
+  "fields": {
+    "emploi_du_temps": 53,
+    "date": "2026-06-05",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.634Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 79,
+  "fields": {
+    "emploi_du_temps": 54,
+    "date": "2026-06-12",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.683Z"
+  }
+},
+{
+  "model": "management.seancepointage",
+  "pk": 80,
+  "fields": {
+    "emploi_du_temps": 54,
+    "date": "2026-06-05",
+    "statut": "PRESENT",
+    "heures_effectuees": "2.00",
+    "motif": "Cours normal",
+    "valide_par": [
+      "admin"
+    ],
+    "created_at": "2026-06-12T17:00:11.734Z"
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 80,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "description": "a modifié l'université",
+    "target_name": "Université Gamal Abdel Nasser de Conakry",
+    "action_type": "update",
+    "timestamp": "2026-06-12T20:13:56.992Z",
+    "faculte": null,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 81,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a modifié la faculté",
+    "target_name": "Faculté des Sciences et Techniques (FST)",
+    "action_type": "update",
+    "timestamp": "2026-06-17T00:36:32.230Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 82,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a modifié la faculté",
+    "target_name": "Faculté des Sciences et Techniques (FST)",
+    "action_type": "update",
+    "timestamp": "2026-06-17T00:41:23.507Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 83,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a modifié la faculté",
+    "target_name": "Faculté des Sciences et Techniques (FST)",
+    "action_type": "update",
+    "timestamp": "2026-06-17T00:41:28.645Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 84,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a ajouté l'enseignant",
+    "target_name": "JOSEPH BANGOURA",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:50:25.846Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 85,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a créé le département",
+    "target_name": "informatique",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:54:44.447Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 86,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a supprimé le département",
+    "target_name": "informatique",
+    "action_type": "delete",
+    "timestamp": "2026-06-17T00:54:51.045Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 87,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a créé la salle",
+    "target_name": "amphi B1",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:55:12.115Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 88,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a supprimé la salle",
+    "target_name": "amphi B1",
+    "action_type": "delete",
+    "timestamp": "2026-06-17T00:55:16.563Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 89,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a créé la classe",
+    "target_name": "licence 2 physique",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:56:05.983Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 90,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a supprimé la classe",
+    "target_name": "Licence 2 Physique",
+    "action_type": "delete",
+    "timestamp": "2026-06-17T00:56:16.293Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 91,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a modifié la matière",
+    "target_name": "Introduction à Mathématiques",
+    "action_type": "update",
+    "timestamp": "2026-06-17T00:56:29.676Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 92,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a ajouté la matière",
+    "target_name": "infos de base",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:57:37.228Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 93,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a créé un enseignement",
+    "target_name": "JOSEPH BANGOURA -> IN001 - infos de base (2025-2026)",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:57:59.214Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 94,
+  "fields": {
+    "user": [
+      "resp_uganc_fst"
+    ],
+    "description": "a ajouté un créneau à l'emploi du temps",
+    "target_name": "Lundi (08:00:00)",
+    "action_type": "create",
+    "timestamp": "2026-06-17T00:58:21.396Z",
+    "faculte": 19,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 95,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "description": "a supprimé l'année académique",
+    "target_name": "2024-2025",
+    "action_type": "delete",
+    "timestamp": "2026-06-17T01:27:02.085Z",
+    "faculte": null,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 96,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "description": "a mis à jour son profil",
+    "target_name": "admin",
+    "action_type": "update",
+    "timestamp": "2026-06-17T01:29:30.501Z",
+    "faculte": null,
+    "is_archived": false
+  }
+},
+{
+  "model": "management.recentactivity",
+  "pk": 97,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "description": "a mis à jour son profil",
+    "target_name": "admin",
+    "action_type": "update",
+    "timestamp": "2026-06-17T01:30:06.202Z",
+    "faculte": null,
+    "is_archived": false
+  }
+}
+]

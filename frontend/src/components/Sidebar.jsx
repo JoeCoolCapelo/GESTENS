@@ -24,7 +24,7 @@ import {
 import { useTheme } from '../context/ThemeContext';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
-  const { user, faculty, logout, isTeacher } = useAuth();
+  const { user, faculty, logout, isTeacher, availableYears, selectedYearId, changeSelectedYear } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [dateTime, setDateTime] = useState(new Date());
@@ -117,7 +117,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       {/* Widget Date & Heure */}
       <div className="hide-on-closed" style={{ 
         padding: '12px', 
-        marginBottom: '20px', 
+        marginBottom: '15px', 
         background: 'rgba(99, 102, 241, 0.05)', 
         borderRadius: '12px',
         border: '1px solid rgba(99, 102, 241, 0.1)'
@@ -128,6 +128,35 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <div style={{ color: 'var(--text-muted)', fontSize: '11px', textTransform: 'capitalize', marginTop: '2px' }}>
           {formatDate(dateTime)}
         </div>
+      </div>
+
+      {/* Sélecteur d'Année Académique */}
+      <div className="hide-on-closed" style={{ padding: '0 8px', marginBottom: '20px' }}>
+        <label style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '4px', display: 'block', fontWeight: '600' }}>
+          Année Académique
+        </label>
+        <select 
+          value={selectedYearId || ''} 
+          onChange={(e) => changeSelectedYear(e.target.value)}
+          style={{ 
+            width: '100%', 
+            padding: '8px', 
+            borderRadius: '8px', 
+            border: '1px solid var(--border)', 
+            background: 'var(--bg-muted)', 
+            color: 'var(--text-main)',
+            fontSize: '13px',
+            outline: 'none',
+            cursor: 'pointer'
+          }}
+        >
+          {availableYears.length === 0 && <option value="">Aucune année...</option>}
+          {availableYears.map(year => (
+            <option key={year.id} value={year.id}>
+              {year.nom} {year.is_current ? '(En cours)' : ''}
+            </option>
+          ))}
+        </select>
       </div>
 
       <nav style={{ flex: 1, overflowY: 'auto', paddingRight: '4px', overflowX: 'hidden' }}>

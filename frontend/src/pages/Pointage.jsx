@@ -30,7 +30,7 @@ const StatusBadge = ({ statut }) => {
 };
 
 const Pointage = () => {
-  const { isTeacher } = useAuth();
+  const { isTeacher, selectedYearId } = useAuth();
   const [schedules, setSchedules] = useState([]);
   const [pointages, setPointages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,11 +41,12 @@ const Pointage = () => {
 
   const DAYS_FR = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
 
-  useEffect(() => { fetchData(); }, []);
+  useEffect(() => { fetchData(); }, [selectedYearId]);
 
   const fetchData = async () => {
     try {
-      const [sr, pr] = await Promise.all([scheduleService.getAll(), pointageService.getAll()]);
+      setLoading(true);
+      const [sr, pr] = await Promise.all([scheduleService.getAll(selectedYearId), pointageService.getAll(selectedYearId)]);
       setSchedules(sr.data);
       setPointages(pr.data);
     } catch (err) { console.error(err); }

@@ -7,7 +7,7 @@ import Modal from '../components/Modal';
 import PrintLayout from '../components/PrintLayout';
 import SchedulePrintGrid from '../components/SchedulePrintGrid';
 const Schedule = () => {
-  const { isTeacher } = useAuth();
+  const { isTeacher, selectedYearId } = useAuth();
   const [schedules, setSchedules] = useState([]);
   const [teachings, setTeachings] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -30,12 +30,13 @@ const Schedule = () => {
   const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 
   useEffect(() => {
+    setLoading(true);
     fetchSchedules();
     fetchTeachings();
     fetchRooms();
     fetchClasses();
     fetchSemesters();
-  }, []);
+  }, [selectedYearId]);
 
   const fetchClasses = async () => {
     try {
@@ -66,7 +67,7 @@ const Schedule = () => {
 
   const fetchSchedules = async () => {
     try {
-      const res = await scheduleService.getAll();
+      const res = await scheduleService.getAll(selectedYearId);
       setSchedules(res.data);
     } catch (err) {
       console.error("Erreur listing emplois du temps", err);
@@ -77,7 +78,7 @@ const Schedule = () => {
 
   const fetchTeachings = async () => {
     try {
-      const res = await teachingService.getAll();
+      const res = await teachingService.getAll(selectedYearId);
       setTeachings(res.data);
     } catch (err) {
       console.error("Erreur listing enseignements", err);

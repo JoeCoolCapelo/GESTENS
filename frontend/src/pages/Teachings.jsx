@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Modal from '../components/Modal';
 
 const Teachings = () => {
+  const { selectedYearId } = useAuth();
   const [teachings, setTeachings] = useState([]);
   const [teachers, setTeachers] = useState([]);
   const [subjects, setSubjects] = useState([]);
@@ -24,11 +25,12 @@ const Teachings = () => {
   useEffect(() => {
     fetchTeachings();
     fetchData();
-  }, []);
+  }, [selectedYearId]);
 
   const fetchTeachings = async () => {
     try {
-      const res = await teachingService.getAll();
+      setLoading(true);
+      const res = await teachingService.getAll(selectedYearId);
       setTeachings(res.data);
     } catch (err) {
       console.error("Erreur listing enseignements", err);
@@ -73,10 +75,15 @@ const Teachings = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const payload = { ...formData };
+      if (selectedYearId) {
+        payload.annee_academique = selectedYearId;
+      }
+      
       if (editingTeaching) {
-        await teachingService.update(editingTeaching.id, formData);
+        await teachingService.update(editingTeaching.id, payload);
       } else {
-        await teachingService.create(formData);
+        await teachingService.create(payload);
       }
       setIsModalOpen(false);
       fetchTeachings();

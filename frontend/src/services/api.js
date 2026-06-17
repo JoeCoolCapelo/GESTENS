@@ -102,21 +102,21 @@ export const semesterService = {
 };
 
 export const teachingService = {
-  getAll: () => api.get('/enseignements/'),
+  getAll: (yearId) => api.get(`/enseignements/${yearId ? '?annee_academique=' + yearId : ''}`),
   create: (data) => api.post('/enseignements/', data),
   update: (id, data) => api.patch(`/enseignements/${id}/`, data),
   delete: (id) => api.delete(`/enseignements/${id}/`)
 };
 
 export const scheduleService = {
-  getAll: () => api.get('/emplois-du-temps/'),
+  getAll: (yearId) => api.get(`/emplois-du-temps/${yearId ? '?annee_academique=' + yearId : ''}`),
   create: (data) => api.post('/emplois-du-temps/', data),
   update: (id, data) => api.patch(`/emplois-du-temps/${id}/`, data),
   delete: (id) => api.delete(`/emplois-du-temps/${id}/`)
 };
 
 export const pointageService = {
-  getAll: () => api.get('/pointages/'),
+  getAll: (yearId) => api.get(`/pointages/${yearId ? '?annee_academique=' + yearId : ''}`),
   create: (data) => api.post('/pointages/', data),
   update: (id, data) => api.patch(`/pointages/${id}/`, data),
   delete: (id) => api.delete(`/pointages/${id}/`)
@@ -132,7 +132,7 @@ export const userService = {
 
 export const activityService = {
   getAll: () => api.get('activities/'),
-  getStats: () => api.get('stats/'),
+  getStats: (yearId) => api.get(`stats/${yearId ? '?annee_academique=' + yearId : ''}`),
   archive: (id) => api.post(`activities/${id}/archive/`),
   restore: (id) => api.post(`activities/${id}/restore/`),
   archiveAll: () => api.post('activities/archive_all/'),
@@ -147,6 +147,7 @@ export const profileService = {
   update: (formData) => api.patch('profile/', formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
+  changePassword: (data) => api.post('profile/change-password/', data),
 };
 
 export const authService = {

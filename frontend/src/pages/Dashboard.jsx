@@ -43,7 +43,7 @@ const StatCard = ({ title, value, icon, color }) => (
 );
 
 const Dashboard = () => {
-  const { user, faculty } = useAuth();
+  const { user, faculty, selectedYearId } = useAuth();
   const [stats, setStats] = useState(null);
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -55,23 +55,23 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [s, a, y, u] = await Promise.all([
-          activityService.getStats(),
+          activityService.getStats(selectedYearId),
           activityService.getAll(),
           academicYearService.getCurrent().catch(() => ({ data: null })),
-          authService.getUniversityInfo(faculty?.universite_id).catch(() => ({ data: null }))
+          authService.getUniversityInfo(faculty?.universite_id || faculty?.universite || faculty?.university?.id).catch(() => ({ data: null }))
         ]);
         setStats(s.data);
         setActivities(a.data);
         setCurrentYear(y.data);
-        if (u && u.data) setUniv(u.data);
-      } catch (err) {
-        console.error("Erreur lors du chargement des données dashboard", err);
+        if (u.data) setUniv(u.data);
+      } catch (error) {
+        console.error("Erreur tableau de bord", error);
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, [faculty, selectedYearId]);
 
   const handleArchive = async (id) => {
     setArchivingId(id);

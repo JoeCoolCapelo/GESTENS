@@ -230,6 +230,25 @@ def profile_view(request):
         log_activity(user, "a mis à jour son profil", user.username, 'update')
         return Response(serializer.data)
 
+@api_view(['POST'])
+@perm_classes([permissions.IsAuthenticated])
+def change_password_view(request):
+    """Permet à l'utilisateur connecté de modifier son mot de passe."""
+    user = request.user
+    old_password = request.data.get('old_password')
+    new_password = request.data.get('new_password')
+
+    if not old_password or not new_password:
+        return Response({'detail': 'L\'ancien et le nouveau mot de passe sont requis.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    if not user.check_password(old_password):
+        return Response({'detail': 'Ancien mot de passe incorrect.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    user.set_password(new_password)
+    user.save()
+    log_activity(user, "a modifié son mot de passe", user.username, 'update')
+    return Response({'detail': 'Mot de passe modifié avec succès.'}, status=status.HTTP_200_OK)
+
 class RegisterView(APIView):
     permission_classes = [permissions.AllowAny]
 
@@ -701,15 +720,20 @@ class SeancePointageViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        year_id = self.request.query_params.get('annee_academique')
+
         if user.is_superuser:
-            return SeancePointage.objects.all()
-        # Si c'est un enseignant, il ne voit que ses pointages
-        if hasattr(user, 'profile') and user.profile.enseignant:
-            return SeancePointage.objects.filter(emploi_du_temps__enseignement__enseignant=user.profile.enseignant)
-        # Sinon (gestionnaire), il voit les pointages de sa faculté
-        if hasattr(user, 'profile'):
-            return SeancePointage.objects.filter(emploi_du_temps__enseignement__classe__departement__faculte=user.profile.faculte)
-        return SeancePointage.objects.none()
+            qs = SeancePointage.objects.all()
+        elif hasattr(user, 'profile') and user.profile.enseignant:
+            qs = SeancePointage.objects.filter(emploi_du_temps__enseignement__enseignant=user.profile.enseignant)
+        elif hasattr(user, 'profile'):
+            qs = SeancePointage.objects.filter(emploi_du_temps__enseignement__classe__departement__faculte=user.profile.faculte)
+        else:
+            return SeancePointage.objects.none()
+
+        if year_id:
+            qs = qs.filter(emploi_du_temps__enseignement__annee_academique_id=year_id)
+        return qs
 
     def perform_create(self, serializer):
         # On vérifie si l'utilisateur est l'enseignant concerné
@@ -802,8 +826,13 @@ def dashboard_stats(request):
     filter_kwargs = {'departement__faculte': faculte} if faculte else {}
     emploi_filter = {'enseignement__classe__departement__faculte': faculte} if faculte else {}
     
-    # Filter by current academic year
-    current_year = AnneeAcademique.objects.filter(is_current=True).first()
+    # Filter by selected or current academic year
+    year_id = request.query_params.get('annee_academique')
+    if year_id:
+        current_year = AnneeAcademique.objects.filter(id=year_id).first()
+    else:
+        current_year = AnneeAcademique.objects.filter(is_current=True).first()
+
     if current_year:
         emploi_filter['enseignement__annee_academique'] = current_year
 

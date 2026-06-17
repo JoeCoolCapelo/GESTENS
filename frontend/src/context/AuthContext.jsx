@@ -8,15 +8,35 @@ export const AuthProvider = ({ children }) => {
   const [faculty, setFaculty] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
-  const [academicYear, setAcademicYear] = useState(null);
+  const [academicYear, setAcademicYear] = useState(null); // The actual current DB year
+  const [availableYears, setAvailableYears] = useState([]);
+  const [selectedYearId, setSelectedYearId] = useState(localStorage.getItem('selectedYearId') || null);
 
-  const fetchAcademicYear = async () => {
+  const fetchAcademicYears = async () => {
     try {
-      const res = await academicYearService.getCurrent();
-      setAcademicYear(res.data);
+      // Load current year first
+      const resCurrent = await academicYearService.getCurrent();
+      const current = resCurrent.data;
+      setAcademicYear(current);
+
+      // Load all years for the dropdown
+      const resAll = await academicYearService.getAll();
+      setAvailableYears(resAll.data);
+
+      // Set selectedYearId if not set, or if set but we want to ensure it's valid
+      if (!localStorage.getItem('selectedYearId') && current) {
+        setSelectedYearId(current.id.toString());
+        localStorage.setItem('selectedYearId', current.id.toString());
+      }
     } catch (err) {
       setAcademicYear(null);
     }
+  };
+
+  const changeSelectedYear = (id) => {
+    setSelectedYearId(id);
+    localStorage.setItem('selectedYearId', id);
+    // Optionally trigger a reload or let components react to the context change
   };
 
   useEffect(() => {
@@ -26,9 +46,11 @@ export const AuthProvider = ({ children }) => {
       const savedFaculty = localStorage.getItem('faculty');
       if (savedUser) setUser(JSON.parse(savedUser));
       if (savedFaculty) setFaculty(JSON.parse(savedFaculty));
-      fetchAcademicYear();
+      fetchAcademicYears();
     } else {
       setAcademicYear(null);
+      setAvailableYears([]);
+      setSelectedYearId(null);
     }
     setLoading(false);
   }, [token]);
@@ -81,9 +103,11 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('faculty');
+    localStorage.removeItem('selectedYearId');
     setToken(null);
     setUser(null);
     setFaculty(null);
+    setSelectedYearId(null);
   };
 
   const updateUserData = (userData) => {
@@ -101,7 +125,8 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={{ 
         user, faculty, token, login, signup, logout, updateUserData, updateFaculty,
-        loading, academicYear, refreshAcademicYear: fetchAcademicYear,
+        loading, academicYear, refreshAcademicYear: fetchAcademicYears,
+        availableYears, selectedYearId, changeSelectedYear,
         isTeacher
     }}>
       {!loading && children}

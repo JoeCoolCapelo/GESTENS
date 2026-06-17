@@ -6,7 +6,7 @@ from .views import (
     DepartementViewSet, EnseignantViewSet,
     ClasseViewSet, MatiereViewSet, SemestreViewSet,
     EnseignementViewSet, EmploiDuTempsViewSet, UserViewSet, RecentActivityViewSet, UniversiteViewSet, SeancePointageViewSet,
-    profile_view, dashboard_stats, export_teachers_pdf, export_schedule_pdf
+    profile_view, dashboard_stats, export_teachers_pdf, export_schedule_pdf, change_password_view
 )
 
 router = DefaultRouter()
@@ -30,6 +30,7 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', CustomLoginView.as_view(), name='custom_login'),
     path('profile/', profile_view, name='profile'),
+    path('profile/change-password/', change_password_view, name='change_password'),
     path('faculties-public/', public_faculty_list, name='faculties_public'),
     path('universities-public/', public_universities_list, name='universities_public'),
     path('university-info/', public_university_info, name='university_info'),

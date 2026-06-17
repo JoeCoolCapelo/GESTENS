@@ -66,8 +66,13 @@ const UniversityHome = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    // Pour l'admin (superuser), la faculté n'est pas requise
+    if (!facultyId && username !== 'admin' && username.trim() !== '') {
+      setError('Veuillez sélectionner une faculté.');
+      return;
+    }
     setSubmitting(true);
-    const res = await login(username, password, facultyId);
+    const res = await login(username, password, facultyId || null);
     setSubmitting(false);
     if (res.success) {
       navigate('/dashboard');
@@ -404,7 +409,10 @@ const UniversityHome = () => {
               </div>
 
               <div style={{ marginBottom: '24px' }}>
-                <label style={{ display: 'block', color: 'var(--text-muted)', fontSize: '13px', marginBottom: '8px', fontWeight: '500' }}>Faculté / Institut</label>
+                <label style={{ display: 'block', color: 'var(--text-muted)', fontSize: '13px', marginBottom: '8px', fontWeight: '500' }}>
+                  Faculté / Institut
+                  {username === 'admin' && <span style={{ color: 'var(--primary)', marginLeft: '6px', fontSize: '11px' }}>(optionnel pour Admin)</span>}
+                </label>
                 <div style={{ position: 'relative' }}>
                   <School size={17} style={{ position: 'absolute', left: '12px', top: '13px', color: 'var(--text-muted)', zIndex: 1 }} />
                   <ChevronDown size={16} style={{ position: 'absolute', right: '12px', top: '13px', color: 'var(--text-muted)', pointerEvents: 'none' }} />
@@ -413,8 +421,8 @@ const UniversityHome = () => {
                     onChange={(e) => setFacultyId(e.target.value)}
                     style={{ paddingLeft: '40px', paddingRight: '36px', marginBottom: 0, appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer', color: facultyId ? 'var(--text-main)' : 'var(--text-muted)', fontWeight: 600 }}
                   >
-                    <option value="" disabled style={{ color: 'var(--text-muted)', background: 'var(--bg-card)' }}>
-                      {faculties.length === 0 ? 'Aucune faculté disponible' : 'Sélectionnez votre faculté'}
+                    <option value="" style={{ color: 'var(--text-muted)', background: 'var(--bg-card)', fontStyle: 'italic' }}>
+                      {username === 'admin' ? '— Accès Administrateur Général —' : (faculties.length === 0 ? 'Aucune faculté disponible' : 'Sélectionnez votre faculté')}
                     </option>
                     {faculties.map(f => (
                       <option key={f.id} value={f.id} style={{ color: 'var(--text-main)', background: 'var(--bg-card)' }}>

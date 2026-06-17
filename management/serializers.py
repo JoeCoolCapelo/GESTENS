@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Faculte, AnneeAcademique, Salle, Departement, Enseignant, Classe, Matiere, Semestre, Enseignement, EmploiDuTemps, UserProfile, RecentActivity, Universite
+from .models import Faculte, AnneeAcademique, Salle, Departement, Enseignant, Classe, Matiere, Semestre, Enseignement, EmploiDuTemps, UserProfile, RecentActivity, Universite, SeancePointage
 
 class UniversiteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,7 +16,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     faculte_details = FaculteSerializer(source='faculte', read_only=True)
     class Meta:
         model = UserProfile
-        fields = ('id', 'faculte', 'faculte_details', 'photo')
+        fields = ('id', 'faculte', 'faculte_details', 'photo', 'enseignant')
 
 class UserSerializer(serializers.ModelSerializer):
     profile = UserProfileSerializer(read_only=True)
@@ -50,6 +50,7 @@ class DepartementSerializer(serializers.ModelSerializer):
 
 class EnseignantSerializer(serializers.ModelSerializer):
     departement_details = DepartementSerializer(source='departement', read_only=True)
+    username = serializers.CharField(source='user_profile.user.username', read_only=True)
     class Meta:
         model = Enseignant
         fields = '__all__'
@@ -161,3 +162,11 @@ class RecentActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = RecentActivity
         fields = ('id', 'user', 'user_name', 'description', 'target_name', 'action_type', 'timestamp', 'faculte_name')
+
+class SeancePointageSerializer(serializers.ModelSerializer):
+    emploi_du_temps_details = EmploiDuTempsSerializer(source='emploi_du_temps', read_only=True)
+    valide_par_nom = serializers.ReadOnlyField(source='valide_par.username')
+
+    class Meta:
+        model = SeancePointage
+        fields = '__all__'

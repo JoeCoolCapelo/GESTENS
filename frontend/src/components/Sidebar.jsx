@@ -17,13 +17,14 @@ import {
   Shield,
   Archive,
   ChevronLeft,
+  ChevronRight,
   Settings,
   MapPin
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
-  const { user, faculty, logout } = useAuth();
+  const { user, faculty, logout, isTeacher } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [dateTime, setDateTime] = useState(new Date());
@@ -52,10 +53,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   };
 
   const menuItems = [
-    { path: '/dashboard', icon: <LayoutDashboard size={20} />, label: 'Tableau de bord' },
+    { path: '/dashboard', icon: <LayoutDashboard size={20} />, label: 'Tableau de bord', teacherOk: true },
     { path: '/universities', icon: <Building2 size={20} />, label: 'Universités', adminOnly: true },
     { path: '/faculties', icon: <School size={20} />, label: 'Facultés', adminOnly: true },
-    { path: '/academic-years', icon: <Calendar size={20} />, label: 'Années Acad.', adminOnly: true },
+    { path: '/academic-years', icon: <Calendar size={20} />, label: 'Années Acad.' },
     { path: '/departments', icon: <Layers size={20} />, label: 'Départements' },
     { path: '/rooms', icon: <MapPin size={20} />, label: 'Salles' },
     { path: '/teachers', icon: <Users size={20} />, label: 'Enseignants' },
@@ -63,7 +64,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { path: '/subjects', icon: <BookOpen size={20} />, label: 'Matières' },
     { path: '/semesters', icon: <ClipboardList size={20} />, label: 'Semestres' },
     { path: '/teachings', icon: <ClipboardList size={20} />, label: 'Enseignements' },
-    { path: '/schedule', icon: <Calendar size={20} />, label: 'Emploi du temps' },
+    { path: '/schedule', icon: <Calendar size={20} />, label: 'Emploi du temps', teacherOk: true },
+    { path: '/pointage', icon: <ClipboardList size={20} />, label: 'Pointage', teacherOk: true, managerOk: false },
     { path: '/archives', icon: <Archive size={20} />, label: 'Archives' },
     { path: '/users', icon: <Shield size={20} />, label: 'Utilisateurs' },
     { path: '/settings', icon: <Settings size={20} />, label: 'Paramètres' },
@@ -71,8 +73,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
   return (
     <aside className={`sidebar ${!isOpen ? 'closed' : ''}`}>
-      <div style={{ marginBottom: '24px', padding: '0 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
+      <div className="sidebar-header" style={{ marginBottom: '24px', padding: '0 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="hide-on-closed">
           <h1 className="gradient-text" style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2px' }}>GESTENS</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '12px' }}>Portail de Gestion</p>
         </div>
@@ -94,7 +96,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button 
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen(!isOpen)}
             style={{
               background: 'rgba(99, 102, 241, 0.1)',
               border: 'none',
@@ -105,15 +107,15 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               display: 'flex',
               alignItems: 'center'
             }}
-            title="Cacher le menu"
+            title={isOpen ? "Cacher le menu" : "Afficher le menu"}
           >
-            <ChevronLeft size={18} />
+            {isOpen ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
           </button>
         </div>
       </div>
 
       {/* Widget Date & Heure */}
-      <div style={{ 
+      <div className="hide-on-closed" style={{ 
         padding: '12px', 
         marginBottom: '20px', 
         background: 'rgba(99, 102, 241, 0.05)', 
@@ -129,14 +131,19 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       </div>
 
       <nav style={{ flex: 1, overflowY: 'auto', paddingRight: '4px', overflowX: 'hidden' }}>
-        {menuItems.filter(item => !item.adminOnly || user?.is_superuser).map((item) => (
+        {menuItems.filter(item => {
+          if (user?.is_superuser) return item.managerOk !== false;
+          if (isTeacher) return item.teacherOk;
+          return !item.adminOnly && item.managerOk !== false;
+        }).map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+            title={!isOpen ? item.label : undefined}
           >
             {item.icon}
-            <span>{item.label}</span>
+            <span className="hide-on-closed">{item.label}</span>
           </NavLink>
         ))}
         {user?.is_superuser && (
@@ -146,9 +153,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             rel="noopener noreferrer"
             className="nav-link"
             style={{ marginTop: '8px', color: 'var(--accent)' }}
+            title={!isOpen ? "Back-Office" : undefined}
           >
             <LayoutDashboard size={20} />
-            <span>Back-Office</span>
+            <span className="hide-on-closed">Back-Office</span>
           </a>
         )}
       </nav>
@@ -190,7 +198,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             }}>
               {user.profile?.photo ? (
                 <img 
-                  src={`http://localhost:8000${user.profile.photo}`} 
+                  src={user.profile.photo.startsWith('http') ? user.profile.photo : `http://localhost:8000${user.profile.photo}`}
                   alt="Avatar" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                 />
@@ -198,7 +206,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 user.username?.charAt(0).toUpperCase()
               )}
             </div>
-            <div style={{ overflow: 'hidden' }}>
+            <div className="hide-on-closed" style={{ overflow: 'hidden' }}>
               <div style={{ fontWeight: '600', color: 'var(--text-main)', fontSize: '14px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {user.username}
               </div>
@@ -211,9 +219,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <button 
           onClick={handleLogout}
           className="logout-btn"
+          title={!isOpen ? "Déconnexion" : undefined}
         >
           <LogOut size={18} />
-          <span>Déconnexion</span>
+          <span className="hide-on-closed">Déconnexion</span>
         </button>
       </div>
     </aside>

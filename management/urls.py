@@ -5,7 +5,7 @@ from .views import (
     FaculteViewSet, AnneeAcademiqueViewSet, SalleViewSet,
     DepartementViewSet, EnseignantViewSet,
     ClasseViewSet, MatiereViewSet, SemestreViewSet,
-    EnseignementViewSet, EmploiDuTempsViewSet, UserViewSet, RecentActivityViewSet, UniversiteViewSet,
+    EnseignementViewSet, EmploiDuTempsViewSet, UserViewSet, RecentActivityViewSet, UniversiteViewSet, SeancePointageViewSet,
     profile_view, dashboard_stats, export_teachers_pdf, export_schedule_pdf
 )
 
@@ -23,6 +23,7 @@ router.register(r'emplois-du-temps', EmploiDuTempsViewSet, basename='emploidutem
 router.register(r'users', UserViewSet, basename='user')
 router.register(r'activities', RecentActivityViewSet, basename='activity')
 router.register(r'universities', UniversiteViewSet, basename='universite')
+router.register(r'pointages', SeancePointageViewSet, basename='pointage')
 
 urlpatterns = [
     path('', include(router.urls)),

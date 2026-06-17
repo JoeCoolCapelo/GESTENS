@@ -11,7 +11,7 @@ const getImageUrl = (url) => {
 };
 
 const Settings = () => {
-  const { user, faculty: userFaculty } = useAuth();
+  const { user, faculty: userFaculty, updateFaculty } = useAuth();
   const [univInfo, setUnivInfo] = useState({
     nom: '', sigle: '', slogan: '', republique: '', email_contact: '', bp: ''
   });
@@ -56,10 +56,20 @@ const Settings = () => {
         formData.append('email', facultyInfo.email);
         if (facLogo) formData.append('logo', facLogo);
         
-        await facultyService.update(userFaculty.id, formData);
-        alert("Faculté mise à jour avec succès !");
-        window.location.reload(); // Recharger pour voir le nouveau logo partout
+        const response = await facultyService.update(userFaculty.id, formData);
+        // Mettre à jour le contexte Auth avec les nouvelles données (logo inclus)
+        const updatedFaculty = {
+          ...userFaculty,
+          nom: response.data.nom,
+          email: response.data.email,
+          logo: response.data.logo,
+        };
+        updateFaculty(updatedFaculty);
+        setFacultyInfo(response.data);
+        setFacLogo(null);
+        alert("Faculté mise à jour avec succès ! Le logo est maintenant visible.");
     } catch (err) {
+        console.error(err);
         alert("Erreur lors de la mise à jour.");
     }
   };

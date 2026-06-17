@@ -13,10 +13,11 @@ const PrintLayout = ({ children, title = "DOCUMENT OFFICIEL", departmentName = "
   const { faculty } = useAuth();
 
   useEffect(() => {
-    authService.getUniversityInfo()
+    const uId = faculty?.universite_id;
+    authService.getUniversityInfo(uId)
       .then(res => setUniv(res.data))
       .catch(err => console.error("Error loading univ info for print", err));
-  }, []);
+  }, [faculty]);
 
   if (!univ) return null;
 

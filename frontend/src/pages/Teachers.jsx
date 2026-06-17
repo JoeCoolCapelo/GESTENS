@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { teacherService, departmentService, scheduleService } from '../services/api';
-import { FileText, Users, Plus, Edit2, Trash2, Search, Filter, Save, User as UserIcon, Phone, Mail, Award, BadgeCheck, Fingerprint, Briefcase, Eye, Calendar as CalendarIcon, Printer, X, Camera, LayoutGrid, LayoutList, MoreHorizontal } from 'lucide-react';
+import { teacherService, departmentService, scheduleService, userService } from '../services/api';
+import { FileText, Users, Plus, Edit2, Trash2, Search, Filter, Save, User as UserIcon, Phone, Mail, Award, BadgeCheck, Fingerprint, Briefcase, Eye, Calendar as CalendarIcon, Printer, X, Camera, LayoutGrid, LayoutList, Lock, Key } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Modal from '../components/Modal';
 import PrintLayout from '../components/PrintLayout';
@@ -35,6 +35,8 @@ const Teachers = () => {
     grade_academique: '', matricule: '', fonction: '', 
     type: 'National', departement: ''
   });
+  const [newPassword, setNewPassword] = useState('');
+  const [newUsername, setNewUsername] = useState('');
 
   const handlePrintList = (type) => {
     const filtered = teachers.filter(t => t.type === type);
@@ -91,6 +93,8 @@ const Teachers = () => {
       setPhotoFile(null);
       setPhotoPreview(null);
     }
+    setNewPassword('');
+    setNewUsername(teacher ? (teacher.username || '') : '');
     setIsModalOpen(true);
   };
 
@@ -116,6 +120,17 @@ const Teachers = () => {
 
       if (editingTeacher) {
         await teacherService.update(editingTeacher.id, data);
+        // Update username and/or password if provided
+        if ((newPassword || newUsername) && editingTeacher.username) {
+          const userRes = await userService.getAll();
+          const linkedUser = userRes.data.find(u => u.username === editingTeacher.username);
+          if (linkedUser) {
+            const updates = {};
+            if (newPassword) updates.password = newPassword;
+            if (newUsername && newUsername !== editingTeacher.username) updates.username = newUsername;
+            await userService.update(linkedUser.id, updates);
+          }
+        }
       } else {
         await teacherService.create(data);
       }
@@ -255,6 +270,14 @@ const Teachers = () => {
                         <span style={{ fontSize: '12px', fontWeight: '500', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block' }}>{teacher.departement_details?.nom || 'N/A'}</span>
                     </div>
                   </div>
+
+                  {teacher.username && (
+                    <div style={{ width: '100%', padding: '8px 12px', background: 'rgba(99,102,241,0.07)', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                      <Key size={13} color="var(--primary)" />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Compte :</span>
+                      <code style={{ fontSize: '13px', color: 'var(--primary)', fontWeight: '600' }}>{teacher.username}</code>
+                    </div>
+                  )}
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '16px' }}>
                     <span style={{ 
@@ -415,6 +438,63 @@ const Teachers = () => {
               <option value="Etranger">Étranger</option>
             </select>
           </div>
+          {/* Section Identifiants de connexion */}
+          <div style={{ gridColumn: 'span 2', padding: '16px', background: 'rgba(99, 102, 241, 0.05)', borderRadius: '12px', border: '1px solid rgba(99, 102, 241, 0.2)' }}>
+            <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--primary)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Key size={14} /> Informations de connexion
+            </p>
+            {editingTeacher ? (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div>
+                  <label style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                    <Key size={11} style={{ display: 'inline', marginRight: '4px' }} />
+                    Identifiant de connexion
+                  </label>
+                  <input
+                    type="text"
+                    value={newUsername}
+                    onChange={e => setNewUsername(e.target.value)}
+                    placeholder="Identifiant..."
+                    style={{ margin: 0, fontFamily: 'monospace' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                    <Lock size={11} style={{ display: 'inline', marginRight: '4px' }} />
+                    Nouveau mot de passe (optionnel)
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="Laisser vide = inchangé"
+                    value={newPassword}
+                    onChange={e => setNewPassword(e.target.value)}
+                    style={{ margin: 0 }}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div>
+                  <label style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Identifiant (généré auto)</label>
+                  <div style={{ padding: '8px 12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', fontFamily: 'monospace', fontSize: '13px', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+                    {formData.prenom && formData.nom
+                      ? `${formData.prenom}.${formData.nom}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '')
+                      : 'prénom.nom'}
+                  </div>
+                </div>
+                <div>
+                  <label style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                    <Lock size={11} style={{ display: 'inline', marginRight: '4px' }} />
+                    Mot de passe par défaut
+                  </label>
+                  <div style={{ padding: '8px 12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', fontFamily: 'monospace', fontSize: '14px', color: '#10b981' }}>
+                    passer123
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div style={{ gridColumn: 'span 2' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontSize: '13px', color: 'var(--text-muted)' }}><Camera size={12}/> Photo de profil</label>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -474,6 +554,16 @@ const Teachers = () => {
             <InfoItem icon={<Award size={16}/>} label="Dernier Diplôme" value={selectedTeacher.dernier_diplome} />
             <InfoItem icon={<CalendarIcon size={16}/>} label="Date de Naissance" value={selectedTeacher.date_naissance} />
             <InfoItem icon={<Users size={16}/>} label="Département" value={selectedTeacher.departement_details?.nom} />
+            {selectedTeacher.username && (
+              <div style={{ gridColumn: 'span 2', padding: '12px 16px', background: 'rgba(99,102,241,0.07)', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '12px', border: '1px solid rgba(99,102,241,0.2)' }}>
+                <Key size={16} color="var(--primary)" />
+                <div>
+                  <p style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '2px' }}>Identifiant de connexion</p>
+                  <code style={{ fontSize: '15px', color: 'var(--primary)', fontWeight: '700' }}>{selectedTeacher.username}</code>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginLeft: '12px' }}>Mot de passe par défaut : passer123</span>
+                </div>
+              </div>
+            )}
             
             <div style={{ gridColumn: 'span 2', display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
               <button className="btn btn-primary" onClick={() => setIsViewModalOpen(false)}>Fermer</button>

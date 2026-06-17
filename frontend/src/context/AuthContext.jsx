@@ -91,10 +91,18 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
   };
 
+  const updateFaculty = (facultyData) => {
+    localStorage.setItem('faculty', JSON.stringify(facultyData));
+    setFaculty(facultyData);
+  };
+
+  const isTeacher = !!user?.profile?.enseignant;
+
   return (
     <AuthContext.Provider value={{ 
-        user, faculty, token, login, signup, logout, updateUserData, 
-        loading, academicYear, refreshAcademicYear: fetchAcademicYear 
+        user, faculty, token, login, signup, logout, updateUserData, updateFaculty,
+        loading, academicYear, refreshAcademicYear: fetchAcademicYear,
+        isTeacher
     }}>
       {!loading && children}
     </AuthContext.Provider>

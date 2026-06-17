@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, AlertTriangle, Calendar } from 'lucide-react'
 import { useLocation, Link } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
@@ -25,10 +25,11 @@ import Archives from './pages/Archives'
 import Settings from './pages/Settings'
 import UniversityHome from './pages/UniversityHome'
 import Rooms from './pages/Rooms'
+import Pointage from './pages/Pointage'
 
 // Composant pour protéger les routes
-const ProtectedRoute = ({ children, adminOnly = false }) => {
-  const { token, user, loading, academicYear } = useAuth();
+const ProtectedRoute = ({ children, adminOnly = false, teacherOk = true }) => {
+  const { token, user, loading, academicYear, isTeacher } = useAuth();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const location = useLocation();
   
@@ -51,6 +52,7 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
     return null; // On laisse le composant actuel (UniversityHome ou Welcome) s'afficher
   }
   if (adminOnly && !user?.is_superuser) return <Navigate to="/dashboard" />;
+  if (isTeacher && !teacherOk) return <Navigate to="/dashboard" />;
   
   return (
     <div style={{ minHeight: '100vh', display: 'flex' }}>
@@ -106,7 +108,18 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
                 </motion.div>
             </div>
         )}
-        {children}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+            style={{ width: '100%' }}
+          >
+            {children}
+          </motion.div>
+        </AnimatePresence>
       </main>
     </div>
   );
@@ -123,21 +136,22 @@ function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/university/:id" element={<UniversityHome />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/universities" element={<ProtectedRoute adminOnly={true}><Universities /></ProtectedRoute>} />
-          <Route path="/faculties" element={<ProtectedRoute adminOnly={true}><Faculties /></ProtectedRoute>} />
-          <Route path="/academic-years" element={<ProtectedRoute adminOnly={true}><AcademicYears /></ProtectedRoute>} />
-          <Route path="/departments" element={<ProtectedRoute><Departments /></ProtectedRoute>} />
-          <Route path="/rooms" element={<ProtectedRoute><Rooms /></ProtectedRoute>} />
-          <Route path="/teachers" element={<ProtectedRoute><Teachers /></ProtectedRoute>} />
-          <Route path="/classes" element={<ProtectedRoute><Classes /></ProtectedRoute>} />
-          <Route path="/subjects" element={<ProtectedRoute><Subjects /></ProtectedRoute>} />
-          <Route path="/semesters" element={<ProtectedRoute><Semesters /></ProtectedRoute>} />
-          <Route path="/teachings" element={<ProtectedRoute><Teachings /></ProtectedRoute>} />
+          <Route path="/universities" element={<ProtectedRoute adminOnly={true} teacherOk={false}><Universities /></ProtectedRoute>} />
+          <Route path="/faculties" element={<ProtectedRoute adminOnly={true} teacherOk={false}><Faculties /></ProtectedRoute>} />
+          <Route path="/academic-years" element={<ProtectedRoute adminOnly={true} teacherOk={false}><AcademicYears /></ProtectedRoute>} />
+          <Route path="/departments" element={<ProtectedRoute teacherOk={false}><Departments /></ProtectedRoute>} />
+          <Route path="/rooms" element={<ProtectedRoute teacherOk={false}><Rooms /></ProtectedRoute>} />
+          <Route path="/teachers" element={<ProtectedRoute teacherOk={false}><Teachers /></ProtectedRoute>} />
+          <Route path="/classes" element={<ProtectedRoute teacherOk={false}><Classes /></ProtectedRoute>} />
+          <Route path="/subjects" element={<ProtectedRoute teacherOk={false}><Subjects /></ProtectedRoute>} />
+          <Route path="/semesters" element={<ProtectedRoute teacherOk={false}><Semesters /></ProtectedRoute>} />
+          <Route path="/teachings" element={<ProtectedRoute teacherOk={false}><Teachings /></ProtectedRoute>} />
           <Route path="/schedule" element={<ProtectedRoute><Schedule /></ProtectedRoute>} />
-          <Route path="/users" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
+          <Route path="/pointage" element={<ProtectedRoute><Pointage /></ProtectedRoute>} />
+          <Route path="/users" element={<ProtectedRoute teacherOk={false}><UsersPage /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-          <Route path="/archives" element={<ProtectedRoute><Archives /></ProtectedRoute>} />
-          <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+          <Route path="/archives" element={<ProtectedRoute teacherOk={false}><Archives /></ProtectedRoute>} />
+          <Route path="/settings" element={<ProtectedRoute teacherOk={false}><Settings /></ProtectedRoute>} />
           
           {/* Redirection vers le dashboard par défaut */}
           <Route path="*" element={<Navigate to="/dashboard" />} />

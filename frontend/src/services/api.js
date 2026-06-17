@@ -63,7 +63,7 @@ export const teacherService = {
   getAll: () => api.get('enseignants/'),
   getById: (id) => api.get(`enseignants/${id}/`),
   create: (data) => api.post('enseignants/', data, { headers: { 'Content-Type': 'multipart/form-data' } }),
-  update: (id, data) => api.put(`enseignants/${id}/`, data, { headers: { 'Content-Type': 'multipart/form-data' } }),
+  update: (id, data) => api.patch(`enseignants/${id}/`, data, { headers: { 'Content-Type': 'multipart/form-data' } }),
   delete: (id) => api.delete(`enseignants/${id}/`),
 };
 
@@ -102,26 +102,31 @@ export const semesterService = {
 };
 
 export const teachingService = {
-  getAll: () => api.get('enseignements/'),
-  getById: (id) => api.get(`enseignements/${id}/`),
-  create: (data) => api.post('enseignements/', data),
-  update: (id, data) => api.put(`enseignements/${id}/`, data),
-  delete: (id) => api.delete(`enseignements/${id}/`),
+  getAll: () => api.get('/enseignements/'),
+  create: (data) => api.post('/enseignements/', data),
+  update: (id, data) => api.patch(`/enseignements/${id}/`, data),
+  delete: (id) => api.delete(`/enseignements/${id}/`)
 };
 
 export const scheduleService = {
-  getAll: () => api.get('emplois-du-temps/'),
-  getById: (id) => api.get(`emplois-du-temps/${id}/`),
-  create: (data) => api.post('emplois-du-temps/', data),
-  update: (id, data) => api.put(`emplois-du-temps/${id}/`, data),
-  delete: (id) => api.delete(`emplois-du-temps/${id}/`),
+  getAll: () => api.get('/emplois-du-temps/'),
+  create: (data) => api.post('/emplois-du-temps/', data),
+  update: (id, data) => api.patch(`/emplois-du-temps/${id}/`, data),
+  delete: (id) => api.delete(`/emplois-du-temps/${id}/`)
+};
+
+export const pointageService = {
+  getAll: () => api.get('/pointages/'),
+  create: (data) => api.post('/pointages/', data),
+  update: (id, data) => api.patch(`/pointages/${id}/`, data),
+  delete: (id) => api.delete(`/pointages/${id}/`)
 };
 
 export const userService = {
   getAll: () => api.get('users/'),
   getById: (id) => api.get(`users/${id}/`),
   create: (data) => api.post('users/', data),
-  update: (id, data) => api.put(`users/${id}/`, data),
+  update: (id, data) => api.patch(`users/${id}/`, data),
   delete: (id) => api.delete(`users/${id}/`),
 };
 

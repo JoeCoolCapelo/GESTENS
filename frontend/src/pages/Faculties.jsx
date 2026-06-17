@@ -3,6 +3,7 @@ import { facultyService, universityAdminService } from '../services/api';
 import { School, Plus, Edit2, Trash2, Mail, Save } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Modal from '../components/Modal';
+import { useAuth } from '../context/AuthContext';
 
 const getImageUrl = (url) => {
   if (!url) return null;
@@ -11,6 +12,7 @@ const getImageUrl = (url) => {
 };
 
 const Faculties = () => {
+  const { faculty: userFaculty, updateFaculty } = useAuth();
   const [faculties, setFaculties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -84,7 +86,16 @@ const Faculties = () => {
 
     try {
       if (editingFaculty) {
-        await facultyService.update(editingFaculty.id, sendData);
+        const response = await facultyService.update(editingFaculty.id, sendData);
+        // Si c'est la propre faculté de l'utilisateur, mettre à jour le contexte Auth
+        if (userFaculty && String(userFaculty.id) === String(editingFaculty.id)) {
+          updateFaculty({
+            ...userFaculty,
+            nom: response.data.nom,
+            email: response.data.email,
+            logo: response.data.logo,
+          });
+        }
       } else {
         await facultyService.create(sendData);
       }

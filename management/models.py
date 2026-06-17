@@ -29,7 +29,8 @@ class Faculte(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     faculte = models.ForeignKey(Faculte, on_delete=models.CASCADE, related_name='users')
-    photo = models.ImageField(upload_to='profiles/photos/', null=True, blank=True)
+    enseignant = models.OneToOneField('Enseignant', on_delete=models.SET_NULL, null=True, blank=True, related_name='user_profile')
+    photo = models.ImageField(upload_to='profiles/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username} - {self.faculte.nom}"
@@ -101,7 +102,7 @@ class Semestre(models.Model):
         ('Impair', 'Impair'),
         ('Pair', 'Pair'),
     ]
-    nom = models.CharField(max_length=5, unique=True) # S1 à S8
+    nom = models.CharField(max_length=20, unique=True) # S1 à S8 ou Semestre 1...
     type = models.CharField(max_length=10, choices=TYPES)
 
     def __str__(self):
@@ -118,7 +119,7 @@ class Enseignement(models.Model):
         return f"{self.enseignant} - {self.matiere} ({self.classe}) - {self.annee_academique}"
 
 class EmploiDuTemps(models.Model):
-    JOURS = [
+    JOURS_CHOICES = [
         ('Lundi', 'Lundi'),
         ('Mardi', 'Mardi'),
         ('Mercredi', 'Mercredi'),
@@ -127,14 +128,39 @@ class EmploiDuTemps(models.Model):
         ('Samedi', 'Samedi'),
         ('Dimanche', 'Dimanche'),
     ]
-    jour = models.CharField(max_length=15, choices=JOURS)
+    enseignement = models.ForeignKey(Enseignement, on_delete=models.CASCADE, related_name='horaires')
+    jour = models.CharField(max_length=20, choices=JOURS_CHOICES)
     heure_debut = models.TimeField()
     heure_fin = models.TimeField()
-    enseignement = models.ForeignKey(Enseignement, on_delete=models.CASCADE, related_name='horaires')
-    salle = models.ForeignKey(Salle, on_delete=models.SET_NULL, null=True, blank=True, related_name='horaires')
+    salle = models.ForeignKey(Salle, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        unique_together = ('jour', 'heure_debut', 'heure_fin', 'salle')
 
     def __str__(self):
-        return f"{self.jour} : {self.heure_debut} - {self.heure_fin} (Salle: {self.salle})"
+        return f"{self.jour} {self.heure_debut}-{self.heure_fin} - {self.enseignement}"
+
+class SeancePointage(models.Model):
+    STATUT_CHOICES = [
+        ('PRESENT', 'Présent'),
+        ('ABSENT', 'Absent'),
+        ('REPORTE', 'Reporté'),
+        ('ANNULE', 'Annulé')
+    ]
+    
+    emploi_du_temps = models.ForeignKey(EmploiDuTemps, on_delete=models.CASCADE, related_name='pointages')
+    date = models.DateField()
+    statut = models.CharField(max_length=10, choices=STATUT_CHOICES, default='PRESENT')
+    heures_effectuees = models.DecimalField(max_digits=4, decimal_places=2, default=0)
+    motif = models.TextField(null=True, blank=True)
+    valide_par = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='pointages_valides')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('emploi_du_temps', 'date')
+
+    def __str__(self):
+        return f"{self.emploi_du_temps} le {self.date} - {self.statut}"
 
 class RecentActivity(models.Model):
     ACTIONS = [

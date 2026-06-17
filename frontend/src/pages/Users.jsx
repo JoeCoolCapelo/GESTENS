@@ -106,61 +106,105 @@ const Users = () => {
         </button>
       </header>
 
-      <div className="glass-morphism" style={{ overflow: 'hidden' }}>
+      <div>
         {loading ? (
           <div style={{ padding: '40px', textAlign: 'center' }}>Chargement...</div>
         ) : (
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Utilisateur</th>
-                <th>Rôle</th>
-                <th>Faculté Associée</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((u) => (
-                <tr key={u.id}>
-                  <td>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <User size={16} color="white" />
-                      </div>
-                      <div>
-                        <div style={{ fontWeight: 500 }}>{u.username}</div>
-                        <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{u.email}</div>
-                      </div>
+          <motion.div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+              gap: '24px',
+              padding: '8px'
+            }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+          >
+            {users.map((u) => (
+              <motion.div 
+                key={u.id}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+                }}
+                whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0,0,0,0.2)' }}
+                className="glass-morphism"
+                style={{ 
+                  padding: '24px', 
+                  borderRadius: '20px', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: '16px',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                {u.is_superuser && (
+                  <div style={{ position: 'absolute', top: '-10px', right: '-10px', width: '50px', height: '50px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '50%', filter: 'blur(15px)' }}></div>
+                )}
+                
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <div style={{ 
+                      width: '48px', height: '48px', 
+                      borderRadius: '16px', 
+                      background: u.is_superuser ? 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)' : 'linear-gradient(135deg, var(--primary) 0%, #818cf8 100%)', 
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.15)'
+                    }}>
+                      <User size={24} color="white" />
                     </div>
-                  </td>
-                  <td>
+                    <div>
+                      <h3 style={{ fontWeight: 'bold', fontSize: '18px', margin: 0 }}>{u.username}</h3>
+                      <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{u.email}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: '10px',
+                  padding: '12px',
+                  background: 'rgba(255,255,255,0.03)',
+                  borderRadius: '12px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
+                    <Shield size={14} color={u.is_superuser ? '#ef4444' : 'var(--primary)'} />
                     <span style={{ 
-                      padding: '4px 10px', 
-                      borderRadius: '20px', 
-                      fontSize: '11px',
-                      background: u.is_superuser ? 'rgba(239, 68, 68, 0.1)' : 'rgba(99, 102, 241, 0.1)',
+                      fontWeight: 600,
                       color: u.is_superuser ? '#ef4444' : 'var(--primary)'
                     }}>
                       {u.is_superuser ? 'Admin Global' : 'Gestionnaire'}
                     </span>
-                  </td>
-                  <td>
-                    {u.is_superuser ? (
-                      <span style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>Toutes les facultés</span>
-                    ) : (
-                      u.profile?.faculte_details?.nom || 'Aucune'
-                    )}
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '12px' }}>
-                      <button onClick={() => handleOpenModal(u)} className="action-btn" title="Modifier"><Edit2 size={16} /></button>
-                      <button onClick={() => handleDelete(u.id)} className="action-btn danger" title="Supprimer"><Trash2 size={16} /></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)' }}>
+                    <Building size={14} />
+                    <span>
+                      {u.is_superuser ? (
+                        <i style={{ opacity: 0.7 }}>Toutes les facultés</i>
+                      ) : (
+                        u.profile?.faculte_details?.nom || 'Aucune faculté'
+                      )}
+                    </span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', marginTop: 'auto', paddingTop: '8px' }}>
+                  <button onClick={() => handleOpenModal(u)} className="action-btn" style={{ flex: 1, justifyContent: 'center', padding: '10px' }} title="Modifier">
+                    <Edit2 size={16} /> Modifier
+                  </button>
+                  <button onClick={() => handleDelete(u.id)} className="action-btn danger" style={{ flex: 1, justifyContent: 'center', padding: '10px' }} title="Supprimer">
+                    <Trash2 size={16} /> Supprimer
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         )}
       </div>
 

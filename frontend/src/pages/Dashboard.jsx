@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { facultyService, teacherService, classService, departmentService, activityService, academicYearService } from '../services/api';
-import { School, Users, GraduationCap, Layers, Clock, PlusCircle, Edit, Trash2, Info, Archive } from 'lucide-react';
+import { authService, facultyService, teacherService, classService, departmentService, activityService, academicYearService } from '../services/api';
+import { School, Users, GraduationCap, Layers, Clock, PlusCircle, Edit, Trash2, Info, Archive, Building2, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const getImageUrl = (url) => {
@@ -48,19 +48,22 @@ const Dashboard = () => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentYear, setCurrentYear] = useState(null);
+  const [univ, setUniv] = useState(null);
   const [archivingId, setArchivingId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [s, a, y] = await Promise.all([
+        const [s, a, y, u] = await Promise.all([
           activityService.getStats(),
           activityService.getAll(),
-          academicYearService.getCurrent().catch(() => ({ data: null }))
+          academicYearService.getCurrent().catch(() => ({ data: null })),
+          authService.getUniversityInfo(faculty?.universite_id).catch(() => ({ data: null }))
         ]);
         setStats(s.data);
         setActivities(a.data);
         setCurrentYear(y.data);
+        if (u && u.data) setUniv(u.data);
       } catch (err) {
         console.error("Erreur lors du chargement des données dashboard", err);
       } finally {
@@ -109,7 +112,7 @@ const Dashboard = () => {
         <div>
           <h2 style={{ fontSize: '32px', fontWeight: 'bold' }}>Bonjour, {user?.username} !</h2>
           <p style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            Bienvenue sur votre portail de gestion universitaire.
+            Bienvenue sur le portail de {univ?.nom || 'votre université'}.
             {currentYear && (
                 <span style={{ 
                     padding: '2px 10px', 
@@ -138,113 +141,174 @@ const Dashboard = () => {
 
       <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', marginBottom: '40px' }}>
         {user?.is_superuser && (
-          <StatCard title="Facultés" value={stats?.global?.total_faculties || 0} icon={<School size={24} />} color="#6366f1" />
+          <StatCard title="Universités" value={stats?.global?.total_universities ?? 0} icon={<Globe size={24} />} color="#6366f1" />
+        )}
+        {user?.is_superuser && (
+          <StatCard title="Facultés" value={stats?.global?.total_faculties ?? 0} icon={<Building2 size={24} />} color="#8b5cf6" />
         )}
         <StatCard title="Départements" value={stats?.global?.total_departments || 0} icon={<Layers size={24} />} color="#818cf8" />
         <StatCard title="Enseignants" value={stats?.global?.total_teachers || 0} icon={<Users size={24} />} color="#a855f7" />
         <StatCard title="Classes" value={stats?.global?.total_classes || 0} icon={<GraduationCap size={24} />} color="#c084fc" />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-        
-        {/* Graphique Volume Horaire par Département (Vertical Bar Chart) */}
-        <div className="glass-morphism" style={{ padding: '24px', display: 'flex', flexDirection: 'column' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Clock size={18} color="#a855f7" /> Volume Horaire Hebdomadaire
-          </h3>
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '24px' }}>Par département</p>
-          
-          <div style={{ display: 'flex', alignItems: 'flex-end', height: '200px', gap: '12px', marginTop: 'auto', paddingBottom: '10px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-            {stats?.hours_by_dept?.map(d => {
-              const maxVal = Math.max(...(stats?.hours_by_dept?.map(x => x.count) || [40]), 40);
-              const heightPct = Math.max(5, (d.count / maxVal) * 100);
-              return (
-                <div key={d.name} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', position: 'relative' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--text-main)' }}>{d.count}h</span>
-                  <div style={{ width: '100%', maxWidth: '40px', height: '150px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
-                    <motion.div 
-                      initial={{ height: 0 }}
-                      animate={{ height: `${heightPct}%` }}
-                      transition={{ duration: 1.2, type: "spring", bounce: 0.3 }}
-                      style={{ width: '100%', background: 'linear-gradient(to top, #6366f1, #a855f7)', borderRadius: '8px' }}
-                    />
+      {stats?.is_teacher ? (
+        <>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+            <StatCard 
+              title="Mes Enseignements" 
+              value={stats.teacher_stats?.total_teachings || 0} 
+              icon={<School size={24} />} 
+              color="#3b82f6" 
+            />
+            <StatCard 
+              title="Heures Programmées" 
+              value={`${stats.teacher_stats?.total_hours || 0}h`} 
+              icon={<Clock size={24} />} 
+              color="#a855f7" 
+            />
+            <StatCard 
+              title="Classes Différentes" 
+              value={stats.total_classes || 0} 
+              icon={<GraduationCap size={24} />} 
+              color="#ec4899" 
+            />
+          </div>
+
+          <div className="glass-morphism" style={{ padding: '24px', marginBottom: '40px' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Clock size={18} color="var(--primary)" /> Mes cours prévus aujourd'hui
+            </h3>
+            {stats.teacher_stats?.today_classes?.length > 0 ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {stats.teacher_stats.today_classes.map((cours, idx) => (
+                  <div key={idx} style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <div style={{ background: 'var(--primary-light)', color: 'var(--primary)', padding: '8px 12px', borderRadius: '8px', fontWeight: 'bold' }}>
+                      {cours.heure_debut.substring(0, 5)} - {cours.heure_fin.substring(0, 5)}
+                    </div>
+                    <div>
+                      <p style={{ fontWeight: '600', fontSize: '15px' }}>{cours.enseignement__matiere__nom}</p>
+                      <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Classe : {cours.enseignement__classe__nom} | Salle : {cours.salle || 'Non assignée'}</p>
+                    </div>
                   </div>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: '100%' }} title={d.name}>
-                    {d.name.length > 8 ? d.name.substring(0, 8) + '...' : d.name}
+                ))}
+              </div>
+            ) : (
+              <div style={{ padding: '20px', textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', color: 'var(--text-muted)' }}>
+                Aucun cours prévu pour vous aujourd'hui.
+              </div>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+            
+            {/* Graphique Volume Horaire par Département (Vertical Bar Chart) */}
+            <div className="glass-morphism" style={{ padding: '24px', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '18px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <Clock size={18} color="#a855f7" /> Volume Horaire Hebdomadaire
+                </h3>
+                <div style={{ textAlign: 'right' }}>
+                  <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#a855f7', lineHeight: '1' }}>
+                    {stats?.hours_by_dept?.reduce((acc, curr) => acc + curr.count, 0) || 0}h
                   </span>
+                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>Total global</div>
                 </div>
-              );
-            })}
-            {(!stats?.hours_by_dept || stats.hours_by_dept.length === 0) && (
-                <div style={{ width: '100%', textAlign: 'center', color: 'var(--text-muted)' }}>Aucune donnée</div>
-            )}
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '24px', marginTop: '-8px' }}>Par département</p>
+              
+              <div style={{ display: 'flex', alignItems: 'flex-end', height: '240px', gap: '16px', marginTop: 'auto', paddingBottom: '10px', borderBottom: '1px solid rgba(255,255,255,0.1)', overflowX: 'auto', overflowY: 'hidden' }}>
+                {stats?.hours_by_dept?.map(d => {
+                  const maxVal = Math.max(...(stats?.hours_by_dept?.map(x => x.count) || [40]), 40);
+                  const heightPct = Math.max(5, (d.count / maxVal) * 100);
+                  return (
+                    <div key={d.name} style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', position: 'relative', width: '90px' }}>
+                      <span style={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--text-main)' }}>{d.count}h</span>
+                      <div style={{ width: '100%', maxWidth: '40px', height: '150px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
+                        <motion.div 
+                          initial={{ height: 0 }}
+                          animate={{ height: `${heightPct}%` }}
+                          transition={{ duration: 1.2, type: "spring", bounce: 0.3 }}
+                          style={{ width: '100%', background: 'linear-gradient(to top, #6366f1, #a855f7)', borderRadius: '8px' }}
+                        />
+                      </div>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', textAlign: 'center', whiteSpace: 'normal', lineHeight: '1.3', width: '100%', wordBreak: 'break-word', minHeight: '30px' }} title={d.name}>
+                        {d.name.replace('Département de ', '').replace("Département d'", "")}
+                      </span>
+                    </div>
+                  );
+                })}
+                {(!stats?.hours_by_dept || stats.hours_by_dept.length === 0) && (
+                    <div style={{ width: '100%', textAlign: 'center', color: 'var(--text-muted)' }}>Aucune donnée</div>
+                )}
+              </div>
+            </div>
+
+            {/* Graphique Enseignants par Grade (Horizontal Chart) */}
+            <div className="glass-morphism" style={{ padding: '24px', display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <GraduationCap size={18} color="var(--primary)" /> Répartition par Grade
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '24px' }}>Niveaux académiques</p>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: 'auto' }}>
+                {stats?.teachers_by_grade?.map((g, idx) => {
+                  const maxVal = Math.max(...(stats?.teachers_by_grade?.map(x => x.count) || [1]), 1);
+                  const colors = ['#6366f1', '#a855f7', '#ec4899', '#f43f5e', '#10b981'];
+                  const barColor = colors[idx % colors.length];
+                  return (
+                    <div key={g.grade_academique || 'Non défini'}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '13px' }}>
+                        <span style={{ color: 'var(--text-muted)' }}>{g.grade_academique || 'Non défini'}</span>
+                        <span style={{ fontWeight: 'bold' }}>{g.count}</span>
+                      </div>
+                      <div style={{ height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: `${(g.count / maxVal) * 100}%` }}
+                          transition={{ duration: 1, delay: idx * 0.1 }}
+                          style={{ height: '100%', background: barColor, borderRadius: '5px' }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+                {(!stats?.teachers_by_grade || stats.teachers_by_grade.length === 0) && (
+                    <div style={{ width: '100%', textAlign: 'center', color: 'var(--text-muted)' }}>Aucune donnée</div>
+                )}
+              </div>
+            </div>
+
           </div>
-        </div>
 
-        {/* Graphique Enseignants par Grade (Horizontal Chart) */}
-        <div className="glass-morphism" style={{ padding: '24px', display: 'flex', flexDirection: 'column' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <GraduationCap size={18} color="var(--primary)" /> Répartition par Grade
-          </h3>
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '24px' }}>Niveaux académiques</p>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: 'auto' }}>
-            {stats?.teachers_by_grade?.map((g, idx) => {
-              const maxVal = Math.max(...(stats?.teachers_by_grade?.map(x => x.count) || [1]), 1);
-              const colors = ['#6366f1', '#a855f7', '#ec4899', '#f43f5e', '#10b981'];
-              const barColor = colors[idx % colors.length];
-              return (
-                <div key={g.grade_academique || 'Non défini'}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '13px' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>{g.grade_academique || 'Non défini'}</span>
-                    <span style={{ fontWeight: 'bold' }}>{g.count}</span>
-                  </div>
-                  <div style={{ height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: `${(g.count / maxVal) * 100}%` }}
-                      transition={{ duration: 1, delay: idx * 0.1 }}
-                      style={{ height: '100%', background: barColor, borderRadius: '5px' }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-            {(!stats?.teachers_by_grade || stats.teachers_by_grade.length === 0) && (
-                <div style={{ width: '100%', textAlign: 'center', color: 'var(--text-muted)' }}>Aucune donnée</div>
-            )}
-          </div>
-        </div>
-
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-        
-        {/* Taux d'occupation (Jauge Circulaire CSS) */}
-        <div className="glass-morphism" style={{ padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', width: '100%', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <School size={18} color="#ec4899" /> Occupation des Salles
-          </h3>
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '32px', width: '100%' }}>Utilisation globale</p>
-          
-          <div style={{ position: 'relative', width: '150px', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-            <svg width="150" height="150" viewBox="0 0 150 150" style={{ position: 'absolute', transform: 'rotate(-90deg)' }}>
-              <circle cx="75" cy="75" r="65" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="12" />
-              <motion.circle 
-                cx="75" cy="75" r="65" fill="none" 
-                stroke="url(#gradientPink)" strokeWidth="12" 
-                strokeDasharray="408.4"
-                initial={{ strokeDashoffset: 408.4 }}
-                animate={{ strokeDashoffset: 408.4 - ((stats?.room_occupancy_pct || 0) / 100) * 408.4 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient id="gradientPink" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ec4899" />
-                  <stop offset="100%" stopColor="#f43f5e" />
-                </linearGradient>
-              </defs>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+            
+            {/* Taux d'occupation (Jauge Circulaire CSS) */}
+            <div className="glass-morphism" style={{ padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', width: '100%', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <School size={18} color="#ec4899" /> Occupation des Salles
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '32px', width: '100%' }}>Utilisation globale</p>
+              
+              <div style={{ position: 'relative', width: '150px', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                <svg width="150" height="150" viewBox="0 0 150 150" style={{ position: 'absolute', transform: 'rotate(-90deg)' }}>
+                  <circle cx="75" cy="75" r="65" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="12" />
+                  <motion.circle 
+                    cx="75" cy="75" r="65" fill="none" 
+                    stroke="url(#gradientPink)" strokeWidth="12" 
+                    strokeDasharray="408.4"
+                    initial={{ strokeDashoffset: 408.4 }}
+                    animate={{ strokeDashoffset: 408.4 - ((stats?.room_occupancy_pct || 0) / 100) * 408.4 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    strokeLinecap="round"
+                  />
+                  <defs>
+                    <linearGradient id="gradientPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ec4899" />
+                      <stop offset="100%" stopColor="#f43f5e" />
+                    </linearGradient>
+                  </defs>
             </svg>
             <div style={{ textAlign: 'center' }}>
               <span style={{ fontSize: '32px', fontWeight: 'bold' }}>{stats?.room_occupancy_pct || 0}%</span>
@@ -373,8 +437,12 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      </>
+      )}
 
-      <div className="glass-morphism" style={{ padding: '32px' }}>
+      {/* Activités Récentes (Visible uniquement pour les gestionnaires) */}
+      {!stats?.is_teacher && (
+        <div className="glass-morphism" style={{ padding: '24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <Clock size={20} color="var(--primary)" />
@@ -472,6 +540,7 @@ const Dashboard = () => {
           )}
         </div>
       </div>
+      )}
     </div>
   );
 };

@@ -69,9 +69,20 @@ const Profile = () => {
 
         try {
             const response = await profileService.update(formData);
-            // Mettre à jour le contexte global
-            updateUserData(response.data);
-            setMessage({ type: 'success', text: 'Profil mis à jour avec succès !' });
+            const updatedUser = response.data;
+
+            // Mettre à jour le contexte global ET le localStorage
+            updateUserData(updatedUser);
+
+            // Rafraîchir la photo affichée depuis la réponse du serveur
+            const newPhotoUrl = updatedUser.profile?.photo || null;
+            setProfileData(prev => ({
+                ...prev,
+                photo: null,
+                photo_url: newPhotoUrl
+            }));
+
+            setMessage({ type: 'success', text: 'Profil mis à jour avec succès ! La photo sera visible partout après reconnexion.' });
         } catch (err) {
             console.error("Erreur mise à jour profil", err);
             setMessage({ type: 'error', text: 'Erreur lors de la mise à jour.' });

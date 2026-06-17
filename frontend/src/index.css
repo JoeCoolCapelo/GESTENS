@@ -117,11 +117,36 @@ h1, h2, h3, h4, h5, h6, .gradient-text, .brand-font {
   z-index: 100;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  overflow-x: hidden;
 }
 
 .sidebar.closed {
-  transform: translateX(-100%);
+  width: 80px;
+  transform: none;
+}
+
+.sidebar.closed .hide-on-closed {
+  display: none !important;
+}
+
+.sidebar.closed .nav-link,
+.sidebar.closed .logout-btn,
+.sidebar.closed .user-profile-link {
+  justify-content: center;
+  padding: 10px;
+}
+
+.sidebar.closed .sidebar-header {
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar.closed .nav-link svg,
+.sidebar.closed .logout-btn svg {
+  transform: scale(1.25);
+  margin: 4px 0;
 }
 
 .nav-link {
@@ -151,7 +176,7 @@ h1, h2, h3, h4, h5, h6, .gradient-text, .brand-font {
 }
 
 .main-content.expanded {
-  margin-left: 0;
+  margin-left: 80px;
 }
 
 /* Table Styling */

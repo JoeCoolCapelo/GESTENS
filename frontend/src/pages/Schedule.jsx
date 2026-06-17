@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { scheduleService, teachingService, roomService, classService, semesterService } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import { FileText, Calendar, Plus, Clock, User, BookOpen, MapPin, Save, Trash2, Printer, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Modal from '../components/Modal';
 import PrintLayout from '../components/PrintLayout';
 import SchedulePrintGrid from '../components/SchedulePrintGrid';
-
 const Schedule = () => {
+  const { isTeacher } = useAuth();
   const [schedules, setSchedules] = useState([]);
   const [teachings, setTeachings] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -142,16 +143,18 @@ const Schedule = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
         <div>
-          <h2 style={{ fontSize: '32px', fontWeight: 'bold' }}>Emploi du temps</h2>
-          <p style={{ color: 'var(--text-muted)' }}>Visualisez et gérez le planning des cours hebdomadaires.</p>
+          <h2 style={{ fontSize: '32px', fontWeight: 'bold' }}>{isTeacher ? "Mon Emploi du temps" : "Emploi du temps"}</h2>
+          <p style={{ color: 'var(--text-muted)' }}>{isTeacher ? "Visualisez vos heures de cours programmées." : "Visualisez et gérez le planning des cours hebdomadaires."}</p>
         </div>
         <div style={{ display: 'flex', gap: '12px' }}>
           <button className="btn glass-morphism" onClick={() => setShowPrintPreview(true)}>
             <Printer size={20} /> Aperçu & Imprimer
           </button>
-          <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
-            <Plus size={20} /> Ajouter un cours
-          </button>
+          {!isTeacher && (
+            <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
+              <Plus size={20} /> Ajouter un cours
+            </button>
+          )}
         </div>
       </header>
 
@@ -194,12 +197,14 @@ const Schedule = () => {
               ) : scheduleByDay[day]?.length > 0 ? (
                 scheduleByDay[day].map((item) => (
                   <div key={item.id} className="glass-morphism" style={{ padding: '16px', borderLeft: '4px solid var(--primary)', position: 'relative' }}>
-                    <button 
-                      onClick={() => handleDelete(item.id)}
-                      style={{ position: 'absolute', top: '10px', right: '10px', background: 'none', border: 'none', color: 'var(--danger)', opacity: 0.5, cursor: 'pointer' }}
-                    >
-                      <Trash2 size={12} />
-                    </button>
+                    {!isTeacher && (
+                      <button 
+                        onClick={() => handleDelete(item.id)}
+                        style={{ position: 'absolute', top: '10px', right: '10px', background: 'none', border: 'none', color: 'var(--danger)', opacity: 0.5, cursor: 'pointer' }}
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                    )}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--primary)', marginBottom: '8px', fontWeight: 'bold' }}>
                       <Clock size={12} /> {(item.heure_debut || '').slice(0, 5)} - {(item.heure_fin || '').slice(0, 5)}
                     </div>
@@ -212,7 +217,7 @@ const Schedule = () => {
                     </div>
                     <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
                       <MapPin size={12} style={{ marginRight: '4px' }} />
-                      {item.enseignement_details?.classe_details?.nom}
+                      {item.salle_details?.nom || 'Non assignée'}
                     </div>
                   </div>
                 ))
@@ -332,7 +337,10 @@ const Schedule = () => {
             </button>
           </div>
 
-          <PrintLayout title={`EMPLOI DU TEMPS HEBDOMADAIRE${selectedClasse ? ' - ' + classes.find(c => c.id.toString() === selectedClasse)?.nom : ''}${selectedSemester ? ' (' + semesters.find(s => s.id.toString() === selectedSemester)?.nom + ')' : ''}`}>
+          <PrintLayout 
+            title={`EMPLOI DU TEMPS HEBDOMADAIRE${selectedClasse ? ' - ' + classes.find(c => c.id.toString() === selectedClasse)?.nom : ''}${selectedSemester ? ' (' + semesters.find(s => s.id.toString() === selectedSemester)?.nom + ')' : ''}`}
+            departmentName={selectedClasse ? classes.find(c => c.id.toString() === selectedClasse)?.departement_details?.nom : 'Tous les départements'}
+          >
             <div style={{ marginTop: '30px' }}>
               <SchedulePrintGrid schedules={filteredSchedules} days={days} />
             </div>

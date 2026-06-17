@@ -10,18 +10,18 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import Faculte, AnneeAcademique, Salle, Departement, Enseignant, Classe, Matiere, Semestre, Enseignement, EmploiDuTemps, UserProfile, Universite, RecentActivity
+from .models import Faculte, AnneeAcademique, Salle, Departement, Enseignant, Classe, Matiere, Semestre, Enseignement, EmploiDuTemps, UserProfile, RecentActivity, Universite, SeancePointage
 from .serializers import (
     FaculteSerializer, AnneeAcademiqueSerializer, SalleSerializer,
     DepartementSerializer, EnseignantSerializer,
     ClasseSerializer, MatiereSerializer, SemestreSerializer,
     EnseignementSerializer, EmploiDuTempsSerializer,
-    UserSerializer, RecentActivitySerializer, UniversiteSerializer
+    UserSerializer, RecentActivitySerializer, UniversiteSerializer, SeancePointageSerializer
 )
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, Image
 from io import BytesIO
 
 def log_activity(user, description, target_name=None, action_type='info'):
@@ -69,17 +69,25 @@ class CustomLoginView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        if user.is_superuser:
-            faculte = None
-        else:
+        faculte = None
+        if faculty_id:
             try:
-                faculte_profile = user.profile.faculte
-                if str(faculte_profile.id) != str(faculty_id):
-                    return Response(
-                        {'detail': 'Vous n\'appartenez pas à cette faculté.'},
-                        status=status.HTTP_403_FORBIDDEN
-                    )
-                faculte = faculte_profile
+                faculte_requested = Faculte.objects.get(id=faculty_id)
+                if user.is_superuser:
+                    faculte = faculte_requested
+                else:
+                    faculte_profile = user.profile.faculte
+                    if str(faculte_profile.id) != str(faculty_id):
+                        return Response(
+                            {'detail': 'Vous n\'appartenez pas à cette faculté.'},
+                            status=status.HTTP_403_FORBIDDEN
+                        )
+                    faculte = faculte_profile
+            except Faculte.DoesNotExist:
+                return Response(
+                    {'detail': 'Faculté introuvable.'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
             except UserProfile.DoesNotExist:
                 return Response(
                     {'detail': 'Profil utilisateur introuvable.'},
@@ -88,7 +96,15 @@ class CustomLoginView(APIView):
 
         # Générer les tokens JWT
         refresh = RefreshToken.for_user(user)
-        
+
+        # Construire l'URL absolue de la photo de profil
+        photo_url = None
+        if hasattr(user, 'profile') and user.profile.photo:
+            try:
+                photo_url = user.profile.photo.url
+            except Exception:
+                photo_url = None
+
         response_data = {
             'access': str(refresh.access_token),
             'refresh': str(refresh),
@@ -97,12 +113,17 @@ class CustomLoginView(APIView):
                 'username': user.username,
                 'email': user.email,
                 'is_superuser': user.is_superuser,
+                'profile': {
+                    'enseignant': user.profile.enseignant_id if hasattr(user, 'profile') else None,
+                    'photo': photo_url,
+                }
             },
             'faculty': {
                 'id': faculte.id,
                 'nom': faculte.nom,
                 'email': faculte.email,
                 'logo': faculte.logo.url if faculte.logo else None,
+                'universite_id': faculte.universite_id,
             } if faculte else None
         }
 
@@ -395,11 +416,76 @@ class EnseignantViewSet(viewsets.ModelViewSet):
         if self.request.user.is_superuser: return Enseignant.objects.all()
         return Enseignant.objects.filter(departement__faculte=self.request.user.profile.faculte)
     def perform_create(self, serializer):
-        obj = serializer.save()
-        log_activity(self.request.user, "a ajouté l'enseignant", f"{obj.prenom} {obj.nom}", 'create')
+        with transaction.atomic():
+            obj = serializer.save()
+            
+            # Auto-create User account for the teacher
+            import unicodedata
+            def strip_accents(s):
+                return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+            
+            base_username = strip_accents(f"{obj.prenom}.{obj.nom}").lower().replace(" ", "")
+            username = base_username
+            counter = 1
+            while User.objects.filter(username=username).exists():
+                username = f"{base_username}{counter}"
+                counter += 1
+            
+            email = obj.email if obj.email else f"{username}@univ.edu"
+            
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                password='passer123'
+            )
+            
+            faculte = self.request.user.profile.faculte
+            if obj.departement:
+                faculte = obj.departement.faculte
+                
+            UserProfile.objects.create(
+                user=user,
+                faculte=faculte,
+                enseignant=obj
+            )
+            
+            log_activity(self.request.user, "a ajouté l'enseignant", f"{obj.prenom} {obj.nom}", 'create')
     def perform_update(self, serializer):
-        obj = serializer.save()
-        log_activity(self.request.user, "a modifié l'enseignant", f"{obj.prenom} {obj.nom}", 'update')
+        with transaction.atomic():
+            obj = serializer.save()
+            
+            # Si l'enseignant n'a pas de profil/compte, on le crée
+            if not hasattr(obj, 'user_profile') or not obj.user_profile:
+                import unicodedata
+                def strip_accents(s):
+                    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+                
+                base_username = strip_accents(f"{obj.prenom}.{obj.nom}").lower().replace(" ", "")
+                username = base_username
+                counter = 1
+                while User.objects.filter(username=username).exists():
+                    username = f"{base_username}{counter}"
+                    counter += 1
+                
+                email = obj.email if obj.email else f"{username}@univ.edu"
+                
+                user = User.objects.create_user(
+                    username=username,
+                    email=email,
+                    password='passer123'
+                )
+                
+                faculte = self.request.user.profile.faculte
+                if obj.departement:
+                    faculte = obj.departement.faculte
+                    
+                UserProfile.objects.create(
+                    user=user,
+                    faculte=faculte,
+                    enseignant=obj
+                )
+                
+            log_activity(self.request.user, "a modifié l'enseignant", f"{obj.prenom} {obj.nom}", 'update')
     def perform_destroy(self, instance):
         log_activity(self.request.user, "a supprimé l'enseignant", f"{instance.prenom} {instance.nom}", 'delete')
         instance.delete()
@@ -482,6 +568,8 @@ class EmploiDuTempsViewSet(viewsets.ModelViewSet):
         qs = EmploiDuTemps.objects.all()
         if not self.request.user.is_superuser:
             qs = qs.filter(enseignement__classe__departement__faculte=self.request.user.profile.faculte)
+            if hasattr(self.request.user.profile, 'enseignant') and self.request.user.profile.enseignant:
+                qs = qs.filter(enseignement__enseignant=self.request.user.profile.enseignant)
         
         # Filtrage par année académique (par défaut l'actuelle via l'enseignement lié)
         annee_id = self.request.query_params.get('annee_academique')
@@ -607,6 +695,38 @@ class UserViewSet(viewsets.ModelViewSet):
         log_activity(self.request.user, "a supprimé l'utilisateur", instance.username, 'delete')
         instance.delete()
 
+class SeancePointageViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = SeancePointageSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser:
+            return SeancePointage.objects.all()
+        # Si c'est un enseignant, il ne voit que ses pointages
+        if hasattr(user, 'profile') and user.profile.enseignant:
+            return SeancePointage.objects.filter(emploi_du_temps__enseignement__enseignant=user.profile.enseignant)
+        # Sinon (gestionnaire), il voit les pointages de sa faculté
+        if hasattr(user, 'profile'):
+            return SeancePointage.objects.filter(emploi_du_temps__enseignement__classe__departement__faculte=user.profile.faculte)
+        return SeancePointage.objects.none()
+
+    def perform_create(self, serializer):
+        # On vérifie si l'utilisateur est l'enseignant concerné
+        emploi = serializer.validated_data.get('emploi_du_temps')
+        user = self.request.user
+        if not user.is_superuser and hasattr(user, 'profile') and user.profile.enseignant:
+            if emploi.enseignement.enseignant != user.profile.enseignant:
+                from rest_framework.exceptions import PermissionDenied
+                raise PermissionDenied("Vous ne pouvez pointer que pour vos propres cours.")
+        
+        serializer.save(valide_par=user)
+        log_activity(user, "a effectué un pointage", str(emploi), 'create')
+
+    def perform_update(self, serializer):
+        serializer.save(valide_par=self.request.user)
+        log_activity(self.request.user, "a modifié un pointage", str(serializer.instance), 'update')
+
 class RecentActivityViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = RecentActivitySerializer
@@ -682,6 +802,43 @@ def dashboard_stats(request):
     filter_kwargs = {'departement__faculte': faculte} if faculte else {}
     emploi_filter = {'enseignement__classe__departement__faculte': faculte} if faculte else {}
     
+    # Filter by current academic year
+    current_year = AnneeAcademique.objects.filter(is_current=True).first()
+    if current_year:
+        emploi_filter['enseignement__annee_academique'] = current_year
+
+    is_teacher = hasattr(request.user, 'profile') and request.user.profile.enseignant
+    if is_teacher:
+        enseignant = request.user.profile.enseignant
+        my_teachings = Enseignement.objects.filter(enseignant=enseignant)
+        if current_year:
+            my_teachings = my_teachings.filter(annee_academique=current_year)
+        
+        my_schedules = EmploiDuTemps.objects.filter(enseignement__in=my_teachings)
+        total_hours = my_schedules.count() * 2
+        
+        from datetime import date
+        today = date.today().weekday()
+        days_map = {0: 'Lundi', 1: 'Mardi', 2: 'Mercredi', 3: 'Jeudi', 4: 'Vendredi', 5: 'Samedi', 6: 'Dimanche'}
+        today_name = days_map.get(today, '')
+        
+        cours_en_cours = my_schedules.filter(jour=today_name).values(
+            'heure_debut', 'heure_fin', 'salle', 'enseignement__matiere__nom', 'enseignement__classe__nom'
+        )
+        
+        return Response({
+            'total_teachers': 1,
+            'total_classes': my_teachings.values('classe').distinct().count(),
+            'total_rooms': my_schedules.values('salle').distinct().count(),
+            'total_departments': 1,
+            'is_teacher': True,
+            'teacher_stats': {
+                'total_teachings': my_teachings.count(),
+                'total_hours': total_hours,
+                'today_classes': list(cours_en_cours)
+            }
+        })
+    
     # 1. Répartition des enseignants par type
     teachers_by_type = Enseignant.objects.filter(**filter_kwargs).values('type').annotate(count=Count('id'))
     
@@ -698,7 +855,7 @@ def dashboard_stats(request):
         
     # 4. Taux d'occupation des salles
     total_rooms = Salle.objects.filter(faculte=faculte).count() if faculte else Salle.objects.count()
-    occupied_slots = EmploiDuTemps.objects.filter(salle__faculte=faculte).count() if faculte else EmploiDuTemps.objects.count()
+    occupied_slots = EmploiDuTemps.objects.filter(**emploi_filter).count()
     room_occupancy_pct = min(100, round((occupied_slots * 2) / max(1, total_rooms * 40) * 100)) # 40h max par salle
     
     # 5. Top 5 des Enseignants les plus sollicités
@@ -744,6 +901,8 @@ def dashboard_stats(request):
             'total_departments': Departement.objects.filter(faculte=faculte).count() if faculte else Departement.objects.count(),
             'total_rooms': total_rooms,
             'total_classes': Classe.objects.filter(**filter_kwargs).count(),
+            'total_faculties': Faculte.objects.filter(universite__isnull=False).count() if not faculte else None,
+            'total_universities': Universite.objects.count() if not faculte else None,
         }
     })
 
@@ -765,7 +924,39 @@ def export_teachers_pdf(request):
     elements = []
     styles = getSampleStyleSheet()
     
-    title = f"LISTE DES ENSEIGNANTS - {faculte.nom if faculte else 'UNIVERSITÉ'}"
+    # Header de l'Université
+    universite = faculte.universite if faculte else Universite.objects.first()
+    if universite:
+        centered_style = ParagraphStyle(
+            name='Centered',
+            parent=styles['Normal'],
+            alignment=1,
+            fontSize=10
+        )
+        title_style = ParagraphStyle(
+            name='TitleCentered',
+            parent=styles['Title'],
+            alignment=1,
+            fontSize=14,
+            spaceAfter=10
+        )
+        
+        if universite.logo:
+            try:
+                img = Image(universite.logo.path, width=60, height=60)
+                img.hAlign = 'CENTER'
+                elements.append(img)
+                elements.append(Spacer(1, 5))
+            except Exception:
+                pass
+                
+        elements.append(Paragraph(universite.republique, centered_style))
+        elements.append(Paragraph(universite.nom, title_style))
+        if universite.slogan:
+            elements.append(Paragraph(f"<i>{universite.slogan}</i>", centered_style))
+        elements.append(Spacer(1, 10))
+    
+    title = f"LISTE DES ENSEIGNANTS - {faculte.nom if faculte else 'TOUTES FACULTÉS'}"
     elements.append(Paragraph(title, styles['Title']))
     elements.append(Spacer(1, 12))
     
@@ -810,6 +1001,42 @@ def export_schedule_pdf(request):
     elements = []
     styles = getSampleStyleSheet()
     
+    # Header de l'Université
+    universite = faculte.universite
+    if universite:
+        # Style centré pour le header
+        centered_style = ParagraphStyle(
+            name='Centered',
+            parent=styles['Normal'],
+            alignment=1, # 1=Center
+            fontSize=10
+        )
+        title_style = ParagraphStyle(
+            name='TitleCentered',
+            parent=styles['Title'],
+            alignment=1,
+            fontSize=14,
+            spaceAfter=10
+        )
+        
+        # Logo s'il existe
+        if universite.logo:
+            try:
+                # Créer une image de 60x60 pixels
+                img = Image(universite.logo.path, width=60, height=60)
+                img.hAlign = 'CENTER'
+                elements.append(img)
+                elements.append(Spacer(1, 5))
+            except Exception:
+                pass # Si l'image physique n'est pas trouvée
+                
+        elements.append(Paragraph(universite.republique, centered_style))
+        elements.append(Paragraph(universite.nom, title_style))
+        if universite.slogan:
+            elements.append(Paragraph(f"<i>{universite.slogan}</i>", centered_style))
+        elements.append(Spacer(1, 10))
+
+    # Titre du document
     elements.append(Paragraph(f"EMPLOI DU TEMPS : {classe.nom} ({classe.niveau})", styles['Title']))
     elements.append(Paragraph(f"Faculté : {faculte.nom}", styles['Normal']))
     elements.append(Spacer(1, 20))

@@ -106,7 +106,7 @@ const SchedulePrintGrid = ({ schedules = [], days = [] }) => {
                       </div>
                     )}
                     <div style={{ fontSize: '9px', color: '#666', marginTop: '2px' }}>
-                      SALLE : {course.enseignement_details?.classe_details?.nom}
+                      {course.salle_details?.nom || 'Non assignée'}
                     </div>
                   </td>
                 );
